@@ -1,0 +1,27 @@
+<div class ="container">
+  <center>
+    <h2>Informações da Maquina</h2>
+    <div class="form_size_show">
+      <p id="notice" class="bg-success"><%= notice %></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Descrição</th>
+            <th>Modelo</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @machine.tipping %></td>
+            <td><%= @machine.description %></td>
+            <td><%= @machine.model %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to 'Edit', edit_machine_path(@machine) %> |
+      <%= link_to 'Back', machines_path %>
+    </div>  
+  </center>
+</div>
