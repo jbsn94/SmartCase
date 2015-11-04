@@ -1,0 +1,30 @@
+<%= form_for(@machine) do |f| %>
+  <% if @machine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@machine.errors.count, "error") %> prohibited this machine from being saved:</h2>
+
+      <ul>
+      <% @machine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="form_size">
+  <div class="form-group">
+    <%= f.label :tipping, 'Tipo' %><br>
+    <%= f.text_field :tipping, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, 'Descrição' %><br>
+    <%= f.text_area :description, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :model, 'Modelo' %><br>
+    <%= f.text_field :model, :class => 'form-control' %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Salvar nova maquina', :class => 'btn btn-success' %>
+  </div>
+</div>
+<% end %>
