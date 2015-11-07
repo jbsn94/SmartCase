@@ -6,10 +6,45 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+     <!-- FONTAWESOME STYLES-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     <!-- MORRIS CHART STYLES-->
+    <link href="stylesheets/css-system/morris-0.4.3.min.css" rel="stylesheet" />
+      <!-- CUSTOM STYLES-->
+    <link href="stylesheets/css-system/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
-
-<%= yield %>
-
+	<div id="wrapper">
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <a  href="#"><i class="fa fa-envelope-o fa-3x"></i> Chamados</a>
+                    </li>
+                    <li>
+                        <a  class="<%= @menuMachine %>" href="index.html"><i class="fa fa-desktop fa-3x"></i> Maquinas</a>
+                    </li>
+                    <li>
+                        <a  href="#"><i class="fa fa-user fa-3x"></i> Usuários</a>
+                    </li>
+                    <li>
+                        <a  href="#"><i class="fa fa-power-off fa-3x"></i> Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>  
+        <div id="page-wrapper" >
+          <div id="page-inner"> 
+				    <%= yield %>
+			    </div>
+        </div>
+  </div>
+    <footer class="footer">
+      <div class="container">
+        <center><p class="text-muted">Aplicação desenvolvida por alunos do CIN-UFPE.</p></center>
+      </div>
+    </footer>
 </body>
 </html>

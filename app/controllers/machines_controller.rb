@@ -5,20 +5,24 @@ class MachinesController < ApplicationController
   # GET /machines.json
   def index
     @machines = Machine.all
+    @menuMachine = "active-menu"
   end
 
   # GET /machines/1
   # GET /machines/1.json
   def show
+    @menuMachine = "active-menu"
   end
 
   # GET /machines/new
   def new
     @machine = Machine.new
+    @menuMachine = "active-menu"
   end
 
   # GET /machines/1/edit
   def edit
+    @menuMachine = "active-menu"
   end
 
   # POST /machines
