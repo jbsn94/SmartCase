@@ -2,7 +2,9 @@
   <center>
     <h2>Informações da Maquina</h2>
     <div class="form_size_show">
-      <p id="notice" class="bg-success"><%= notice %></p>
+      <% if notice %>
+        <center><div class="alert text-success" role="alert"><p id="notice"><%= notice %></p></div></center>
+      <% end %>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -20,8 +22,14 @@
           </tr>
         </tbody>
       </table>
-      <%= link_to 'Edit', edit_machine_path(@machine) %> |
-      <%= link_to 'Back', machines_path %>
+      <div class="btn-group btn-group-xs" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= edit_machine_path(@machine) %>'"><i class="fa fa-pencil-square-o"></i> Editar</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= machines_path %>'"><i class="fa fa-undo"></i> Voltar</button>
+        </div>
+      </div>
     </div>
   </center>
 </div>

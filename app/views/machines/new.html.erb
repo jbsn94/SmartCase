@@ -1,7 +1,12 @@
 <div class ="container-fluid">
   <center>
-    <h1>Nova maquina</h1>
-    <%= render 'form' %>
-    <%= link_to 'Back', machines_path %>
-    </center>
+    <div class="row">
+      <div class="col-md-5 col-md-offset-4">
+        <h1>Adicionar maquina</h1>
+        <%= render 'form' %>
+        <br>
+        <button type="button" class="btn btn-danger" onclick="window.location.href='<%= machines_path %>'"><i class="fa fa-undo"></i> Voltar</button>
+      </div>
+    </div>
+  </center>
 </div>

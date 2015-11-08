@@ -16,15 +16,16 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
- #wrapper {
+#wrapper {
     width: 100%;
-    background:#202020;
+    background: #B2120F;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #page-wrapper {
     padding: 15px 15px;
     min-height: 600px;
-    background:#F3F3F3;
+    background: #E0DECC;
    
 }
 #page-inner {
@@ -33,13 +34,14 @@ body {
     background-color:#fff!important;
     padding:10px;
     min-height:1200px;
+    border-radius: 10px;
 }
 
 .text-center {
     text-align:center;
 }
 .no-boder {
-    border:1px solid #f3f3f3;
+    border:2px solid #f3f3f3;
 }
 h2 {
     color: #f00;
@@ -71,7 +73,7 @@ min-height: 100px;
 padding: 20px;
 }
 
-    .noti-box .icon-box {
+.noti-box .icon-box {
 display: block;
 float: left;
 margin: 0 15px 10px 0;
@@ -175,7 +177,7 @@ margin: 0;
 padding: 0;
 list-style: none;
 }
- .chat-box li {
+.chat-box li {
 margin-bottom: 15px;
 padding-bottom: 5px;
 border-bottom: 1px dotted #808080;
@@ -215,7 +217,7 @@ font-size: 30px;
 font-weight: 700;
 }
 .active-menu {
-    background-color:#C90000!important;
+    background-color:#B2120F!important;
 }
 
 .arrow {
@@ -250,8 +252,8 @@ font-weight: 700;
 	padding:0;
 }
 .sidebar-collapse .nav > li > a {
-	color:#fff;
-	background:#202020;
+	color:#000;
+	background:#00000;
 	text-shadow:none;
 	
 }
@@ -261,10 +263,11 @@ font-weight: 700;
 .sidebar-collapse > .nav > li {
 	border-bottom: 1px solid rgba(107, 108, 109, 0.19);
 }
+/* Cor do menu quando o mouser passar por cima.*/
 .sidebar-collapse .nav > li > a:hover,
 .sidebar-collapse .nav > li > a:focus {
 	
-	background:#0A0A0A;
+	background:#E3E3D9;
 	outline:0;
 }
 
@@ -317,17 +320,17 @@ color:#fff;
 }
 
 .navbar-default {
-border:0px solid black;
+border:1px solid;
      
 }
 .navbar-header {
     background: #A70303;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-background-color: #B40101;
+background-color: #F2F2E7;
 }
 .navbar-default .navbar-toggle {
-border-color: #fff;
+border-color: #B2120F;
 }
 
 .navbar-default .navbar-toggle .icon-bar {

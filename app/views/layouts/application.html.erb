@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
      <!-- FONTAWESOME STYLES-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
      <!-- MORRIS CHART STYLES-->
@@ -24,7 +25,7 @@
                         <a  href="#"><i class="fa fa-envelope-o fa-3x"></i> Chamados</a>
                     </li>
                     <li>
-                        <a  class="<%= @menuMachine %>" href="index.html"><i class="fa fa-desktop fa-3x"></i> Maquinas</a>
+                        <a  class="<%= @menuMachine %>" href="<%= machines_path %>"><i class="fa fa-desktop fa-3x"></i> Maquinas</a>
                     </li>
                     <li>
                         <a  href="#"><i class="fa fa-user fa-3x"></i> Usuários</a>
@@ -36,14 +37,16 @@
             </div>
         </nav>  
         <div id="page-wrapper" >
-          <div id="page-inner"> 
-				    <%= yield %>
-			    </div>
+            <div id="page-inner"> 
+			    <%= yield %>
+			</div>
         </div>
-  </div>
+    </div>
     <footer class="footer">
       <div class="container">
-        <center><p class="text-muted">Aplicação desenvolvida por alunos do CIN-UFPE.</p></center>
+        <center>
+            <p class="text-muted"><i class="fa fa-copyright"></i> Copyright 2015 - Grupo <strong>SmartCase</strong>, todos os direitos reservados.</p>
+        </center>
       </div>
     </footer>
 </body>
