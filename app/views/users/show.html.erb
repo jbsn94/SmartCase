@@ -1,0 +1,43 @@
+<div class ="container-fluid">
+  <center>
+    <h2>Informações do usuário</h2>
+    <div class="form_size_show">
+      <% if notice %>
+        <center><div class="alert text-success" role="alert"><p id="notice"><%= notice %></p></div></center>
+      <% end %>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Cpf</th>
+            <th>Administrador</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @user.name %></td>
+            <td><%= @user.email %></td>
+            <td><%= @user.cpf %></td>
+            <td><% if @user.tipo %>
+                  <%= 'Sim' %>
+                <% else %>
+                  <%= 'Não' %>
+                <% end %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn-group btn-group-xs" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= edit_user_path(@user) %>'"><i class="fa fa-pencil-square-o"></i> Editar</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= new_user_path %>'"><i class="fa fa-plus"></i> Adicionar usuário</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= users_path %>'"><i class="fa fa-undo"></i> Voltar</button>
+        </div>
+      </div>
+    </div>
+  </center>
+</div>
