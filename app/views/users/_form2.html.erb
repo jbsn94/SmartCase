@@ -24,10 +24,6 @@
     <%= f.text_field :cpf, :class => 'form-control'  %>
   </div>
   <div class="form-group">
-    <%= f.label :Senha %><br>
-    <%= f.text_field :password, :class => 'form-control', :value => @pass, :type => 'password' %>
-  </div>
-  <div class="form-group">
     <%= select :user, :tipo, [['Solicitante'], ['Funcionário']], :class => 'selectpicker' %>
   </div>
   <div class="actions">

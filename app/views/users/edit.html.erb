@@ -3,16 +3,8 @@
         <div class="row">
             <div class="col-md-5 col-md-offset-4">
                 <h1>Editar Usuário</h1>
-                <%= render 'form' %>
+                <%= render 'form2' %>
                 <br>
-                <div class="btn-group btn-group-xs" role="group" aria-label="...">
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-danger" onclick="window.location.href='<%= user_path(@user) %>'"><i class="fa fa-search-plus"></i> Ver</button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-danger" onclick="window.location.href='<%= users_path %>'"><i class="fa fa-undo"></i> Voltar</button>
-                    </div>
-                </div>
             </div>
         </div>
     </center>

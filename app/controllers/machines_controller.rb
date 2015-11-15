@@ -28,6 +28,7 @@ class MachinesController < ApplicationController
   # POST /machines
   # POST /machines.json
   def create
+    @menuMachine = "active-menu"
     @machine = Machine.new(machine_params)
 
     respond_to do |format|
@@ -44,6 +45,7 @@ class MachinesController < ApplicationController
   # PATCH/PUT /machines/1
   # PATCH/PUT /machines/1.json
   def update
+    @menuMachine = "active-menu"
     respond_to do |format|
       if @machine.update(machine_params)
         format.html { redirect_to @machine, notice: 'Machine was successfully updated.' }

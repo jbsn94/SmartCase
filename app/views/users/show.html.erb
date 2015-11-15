@@ -11,7 +11,7 @@
             <th>Nome</th>
             <th>Email</th>
             <th>Cpf</th>
-            <th>Administrador</th>
+            <th>Tipo</th>
           </tr>
         </thead>
         <tbody>
@@ -19,11 +19,7 @@
             <td><%= @user.name %></td>
             <td><%= @user.email %></td>
             <td><%= @user.cpf %></td>
-            <td><% if @user.tipo %>
-                  <%= 'Sim' %>
-                <% else %>
-                  <%= 'Não' %>
-                <% end %></td>
+            <td><%= @user.tipo %></td>
           </tr>
         </tbody>
       </table>

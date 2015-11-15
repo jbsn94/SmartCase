@@ -8,9 +8,7 @@
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Email</th>
-          <th>CPF</th>
-          <th>Administrador</th>
+          <th>Tipo</th>
           <th colspan="3"><center>Funções</center></th>
         </tr>
       </thead>
@@ -19,13 +17,7 @@
         <% @users.each do |user| %>
           <tr>
             <td><%= user.name %></td>
-            <td><%= user.email %></td>
-            <td><%= user.cpf %></td>
-            <td><% if user.tipo %>
-                  <%= 'Sim' %>
-                <% else %>
-                  <%= 'Não' %>
-                <% end %></td>
+            <td><%= user.tipo %></td>
             <td><i class="fa fa-search-plus"></i><%= link_to ' Ver', user %></td>
             <td><i class="fa fa-trash"></i><%= link_to ' Excluir', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>

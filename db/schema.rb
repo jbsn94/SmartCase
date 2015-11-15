@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108040217) do
+ActiveRecord::Schema.define(version: 20151113023622) do
 
   create_table "machines", force: :cascade do |t|
     t.string   "tipping"
@@ -22,12 +22,11 @@ ActiveRecord::Schema.define(version: 20151108040217) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "cpf"
-    t.boolean  "tipo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "email"
+    t.string "cpf"
+    t.string "password"
+    t.string "tipo"
   end
 
 end

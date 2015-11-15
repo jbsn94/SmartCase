@@ -10,9 +10,9 @@
      <!-- FONTAWESOME STYLES-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
      <!-- MORRIS CHART STYLES-->
-    <link href="stylesheets/css-system/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="/css-system/morris-0.4.3.min.css" rel="stylesheet" />
       <!-- CUSTOM STYLES-->
-    <link href="stylesheets/css-system/custom.css" rel="stylesheet" />
+    <link href="/css-system/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
@@ -39,10 +39,11 @@
         <div id="page-wrapper" >
             <div id="page-inner"> 
 			    <%= yield %>
+			    <%= debug(params) if Rails.env.development? %>
 			</div>
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer foot_back">
       <div class="container">
         <center>
             <p class="text-muted"><i class="fa fa-copyright"></i> Copyright 2015 - Grupo <strong>SmartCase</strong>, todos os direitos reservados.</p>

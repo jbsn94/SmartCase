@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @menuUser = "active-menu"
+    @pass = (0...8).map { (97 + rand(25)).chr }.join
   end
 
   # GET /users/1/edit
@@ -28,6 +29,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    @menuUser = "active-menu"
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -44,6 +46,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @menuUser = "active-menu"
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -73,6 +76,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :cpf, :tipo)
+      params.require(:user).permit(:name, :email, :cpf, :password, :tipo)
     end
 end
