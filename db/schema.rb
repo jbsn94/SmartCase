@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113023622) do
+ActiveRecord::Schema.define(version: 20151115193112) do
 
   create_table "machines", force: :cascade do |t|
     t.string   "tipping"
