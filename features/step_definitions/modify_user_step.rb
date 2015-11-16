@@ -34,10 +34,8 @@ When(/^I choose the "(.*?)" with "(.*?)"$/) do |arg1, arg2|
 end
 
 When(/^I press on "(.*?)"$/) do |arg1|
-  @count = User.count
-  @user=User.new(name: "User Name 2", email: "user2@email.com", cpf: "123123123-22", password: "kamehameha2")
   click_button(arg1)
-  @user.save
+  @user.update(name: "User Name 2", email: "user2@email.com", cpf: "123123123-22", password: "kamehameha2")
   visit(edit_user_path(1))
 end
 
