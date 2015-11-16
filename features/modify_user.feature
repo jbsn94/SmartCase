@@ -10,7 +10,6 @@ Feature: Edit Users
       Then I should go to User Information
       When I press the button "Edit"
       Then I should go to Edit User Information
-      
       When I fill the field "user[name]" with "User Name 2"
       And I fill the field "user[email]" with "user2@email.com"
       And I fill the field "user[cpf]" with "123123123-22"
