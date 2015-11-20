@@ -9,6 +9,12 @@
     IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
    
     ========================================================  */
+/*======================================
+            Neto CSS
+=======================================*/
+.bgNeto {
+    background-color: #16B849;
+}
 /*==============================================
     GENERAL  STYLES    
     =============================================*/
@@ -260,11 +266,12 @@ font-weight: 700;
 }
 .sidebar-collapse > .nav > li {
 	border-bottom: 1px solid rgba(107, 108, 109, 0.19);
+	
 }
 /* Cor do menu quando o mouser passar por cima.*/
 .sidebar-collapse .nav > li > a:hover,
 .sidebar-collapse .nav > li > a:focus {
-	
+	transition: color 0.3s, background-color 0.3s, border-color 0.3s;
 	background:#E3E3D9;
 	outline:0;
 }
@@ -303,6 +310,7 @@ font-weight: 700;
 .navbar-side {
 	border:none;
 	
+	
 }
 .navbar-cls-top {
 	background:#4D4D4D;
@@ -331,9 +339,11 @@ background-color: #F2F2E7;
 
 .navbar-default .navbar-toggle .icon-bar {
 background-color: #FFF;
+
 }
 .nav > li > a > i {
     margin-right:10px;
+
 }
 /*==============================================
     UI ELEMENTS STYLES     
@@ -367,10 +377,11 @@ line-height: 1.428571429;
         z-index: 1;
         position: absolute;
         width: 260px;
+        
     }
 
    .navbar {
- border-radius: 0px; 
+ border-radius: 0px;
 }
    
 }

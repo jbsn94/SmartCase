@@ -1,34 +1,36 @@
 class MachinesController < ApplicationController
   before_action :set_machine, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
+  before_filter :set_menu
+  
+  #MarkMenu
+  def set_menu
+    @menuMachine = "active-menu"
+  end
 
   # GET /machines
   # GET /machines.json
   def index
     @machines = Machine.all
-    @menuMachine = "active-menu"
   end
 
   # GET /machines/1
   # GET /machines/1.json
   def show
-    @menuMachine = "active-menu"
   end
 
   # GET /machines/new
   def new
     @machine = Machine.new
-    @menuMachine = "active-menu"
   end
 
   # GET /machines/1/edit
   def edit
-    @menuMachine = "active-menu"
   end
 
   # POST /machines
   # POST /machines.json
   def create
-    @menuMachine = "active-menu"
     @machine = Machine.new(machine_params)
 
     respond_to do |format|
@@ -45,7 +47,6 @@ class MachinesController < ApplicationController
   # PATCH/PUT /machines/1
   # PATCH/PUT /machines/1.json
   def update
-    @menuMachine = "active-menu"
     respond_to do |format|
       if @machine.update(machine_params)
         format.html { redirect_to @machine, notice: 'Machine was successfully updated.' }

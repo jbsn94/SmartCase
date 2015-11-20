@@ -1,36 +1,43 @@
+<br>
 <%= form_for(@machine) do |f| %>
   <% if @machine.errors.any? %>
-    <div id="error_explanation">
-      <%= pluralize(@machine.errors.count, "error") %> prohibited this machine from being saved:
-      <ul>
+    <div id="error_explanation" class="alert alert-danger">
+      <center><i class="fa fa-exclamation-triangle fa-2x"></i> Seu formulário contem <%= pluralize(@machine.errors.count, "erro") %><br></center>
+      <hr>
       <% @machine.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <% if message == "Tipping only allows letters and numbers" %>
+          O campo <strong>tipo</strong> só aceita letras e numeros e não pode ficar em branco.<br>
+        <% elsif message == "Description only allows letters and numbers" %>
+          O campo <strong>descrição</strong> só aceita letras e numeros e não pode ficar em branco.<br>
+        <% elsif message == "Model only allows letters and numbers"  %>
+          O campo <strong>modelo</strong> só aceita letras e numeros e não pode ficar em branco.<br>
+        <% else %>
+          <%= message %><br>
+        <% end %>
       <% end %>
-      </ul>
     </div>
   <% end %>
 <div class="form_size">
   <div class="form-group">
-    <%= f.label :tipping, 'Tipo' %><br>
-    <%= f.text_field :tipping, :class => 'form-control' %>
+    <%= f.text_field :tipping, :class => 'form-control', placeholder: 'Tipo da maquina', onKeypress: "return teste(SomenteLetrasNumeros)" %>
   </div>
   <div class="form-group">
-    <%= f.label :description, 'Descrição' %><br>
-    <%= f.text_area :description, :class => 'form-control' %>
+    <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição' %>
   </div>
   <div class="form-group">
-    <%= f.label :model, 'Modelo' %><br>
-    <%= f.text_field :model, :class => 'form-control' %>
+    <%= f.text_field :model, :class => 'form-control', placeholder: 'Modelo da maquina' %>
   </div>
-  <div class="actions">
-    <div class="btn-group btn-group-xs" role="group" aria-label="...">
-      <div class="btn-group" role="group">
-        <%= f.submit 'Salvar maquina', :class => 'btn btn-danger' %> 
-      </div>
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-danger" onclick="window.location.href='<%= machines_path %>'"><i class="fa fa-undo"></i> Voltar</button>
+  <center>
+    <div class="actions">
+      <div class="btn-group btn-group-xs" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <%= f.submit 'Salvar maquina', :class => 'btn btn-danger' %> 
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= machines_path %>'"><i class="fa fa-undo"></i> Voltar</button>
+        </div>
       </div>
     </div>
-  </div>
+  </center>
 </div>
 <% end %>

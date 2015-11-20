@@ -1,37 +1,39 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
+  before_filter :set_menu
+  
+  #MarkMenu
+  def set_menu
+    @menuUser = "active-menu"
+  end
 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-    @menuUser = "active-menu"
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @menuUser = "active-menu"
+
   end
 
   # GET /users/new
   def new
     @user = User.new
-    @menuUser = "active-menu"
     @pass = (0...8).map { (97 + rand(25)).chr }.join
   end
 
   # GET /users/1/edit
   def edit
-    @menuUser = "active-menu"
   end
 
   # POST /users
   # POST /users.json
   def create
-    @menuUser = "active-menu"
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -46,7 +48,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    @menuUser = "active-menu"
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

@@ -25,10 +25,10 @@
   </div>
   <div class="form-group">
     <%= f.label :Senha %><br>
-    <%= f.text_field :password, :class => 'form-control', :value => @pass, :type => 'password' %>
+    <%= f.text_field :password, :class => 'form-control', :type => 'password' %>
   </div>
   <div class="form-group">
-    <%= select :user, :tipo, [['Solicitante'], ['Funcionário']], :class => 'selectpicker' %>
+    <%= select :user, :tipo, [['Solicitante'], ['Funcionário'], ['Administrador']], :class => 'selectpicker' %>
   </div>
   <div class="actions">
     <div class="btn-group btn-group-xs" role="group" aria-label="...">

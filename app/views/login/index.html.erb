@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row vertical-offset-100">
+        <div class="col-md-5 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">                                
+                    <div class="row-fluid user-row">
+                        <img src="http://s11.postimg.org/7kzgji28v/logo_sm_2_mr_1.png" class="img-responsive" alt="Conxole Admin"/>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <center>
+                    <label class="panel-login">
+                        <% if notice %>
+                            <div class="alert alert-danger" role="alert"><i class="fa fa-exclamation"></i> <%= notice %></div>
+                        <% end %>
+                    </label>
+                    </center>
+                    <%= form_for(:session, url: '/login') do |f| %>
+                        <div class="input-group margin-bottom-sm">
+                          <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                            <%= f.text_field :cpf, :placeholder => "CPF", class: "form-control" %>
+                        </div><p></p>
+                        <div class="input-group margin-bottom-sm">
+                          <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></i></span>
+                            <%= f.password_field :password, :placeholder => "Senha", class: "form-control" %>
+                        </div><p></p>
+                        <%= f.submit "Entrar", class: "btn-submit btn btn-lg btn-success btn-block" %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
