@@ -1,17 +1,20 @@
 <div class="container">
     <div class="row vertical-offset-100">
-        <div class="col-md-5 col-md-offset-4">
+        <div class="col-md-5 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading">                                
                     <div class="row-fluid user-row">
-                        <img src="http://s11.postimg.org/7kzgji28v/logo_sm_2_mr_1.png" class="img-responsive" alt="Conxole Admin"/>
+                        <img src="/images/logo2-ufpe.png" class="img-responsive" alt="Conxole Admin" height="100" width="330"/>
                     </div>
                 </div>
                 <div class="panel-body">
                     <center>
                     <label class="panel-login">
                         <% if notice %>
-                            <div class="alert alert-danger" role="alert"><i class="fa fa-exclamation"></i> <%= notice %></div>
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle-o"></i></span></button>
+                              <i class="fa fa-exclamation"></i> <%= notice %>
+                            </div>
                         <% end %>
                     </label>
                     </center>
@@ -24,7 +27,7 @@
                           <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></i></span>
                             <%= f.password_field :password, :placeholder => "Senha", class: "form-control" %>
                         </div><p></p>
-                        <%= f.submit "Entrar", class: "btn-submit btn btn-lg btn-success btn-block" %>
+                        <button type="submit" name="commit" class="btn-submit btn btn-lg btn-danger btn-block"><i class="fa fa-sign-in"></i> Entrar</button>
                     <% end %>
                 </div>
             </div>

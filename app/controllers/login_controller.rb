@@ -13,7 +13,11 @@ class LoginController < ApplicationController
     end 
   end
   def destroy 
-    session[:user_id] = session[:user_tipo] = nil 
-  redirect_to '/' 
+    if session[:user_id]
+      session[:user_id] = session[:user_tipo] = nil 
+      redirect_to '/' 
+    else
+      redirect_to '/' 
+    end
   end
 end
