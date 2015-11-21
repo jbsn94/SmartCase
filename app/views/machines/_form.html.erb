@@ -2,6 +2,7 @@
 <%= form_for(@machine) do |f| %>
   <% if @machine.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle-o"></i></span></button>
       <center><i class="fa fa-exclamation-triangle fa-2x"></i> Seu formulário contem <%= pluralize(@machine.errors.count, "erro") %><br></center>
       <hr>
       <% @machine.errors.full_messages.each do |message| %>
