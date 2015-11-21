@@ -5,7 +5,7 @@
  * @package PARALLAX LOGIN.
  */
 .body {
-    background-color: #103038;
+    background-color: #E1E2E3;
     /*background: url(http://content.wallpapers-room.com/resolutions/1920x1200/C/Wallpapers-room_com___Closed_Maze_Blue_by_Untergunter_1920x1200.jpg);
 */
 }
@@ -38,11 +38,10 @@
     height: auto;
     margin: auto;
 }
-.panel {
+.panel2 {
     margin-bottom: 20px;
     background-color: rgba(255, 255, 255, 0.75);
     border: 1px solid transparent;
     border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 2px 2px 10px #5F6061;
 }
