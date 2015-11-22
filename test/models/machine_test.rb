@@ -5,7 +5,7 @@ class MachineTest < ActiveSupport::TestCase
   #   assert true
   # end
   
-  test "should save with all fields fill" do
+  test "should save with all those fields fill" do
     @mach = Machine.new(tipping: "q9we18", description: "qDCQER8", model: "1231981FFD")
     assert @mach.save
   end
