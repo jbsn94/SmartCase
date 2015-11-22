@@ -5,6 +5,16 @@ class MachineTest < ActiveSupport::TestCase
   #   assert true
   # end
   
+  test "should save with all fields fill" do
+    @mach = Machine.new(tipping: "q9we18", description: "qDCQER8", model: "1231981FFD")
+    assert @mach.save
+  end
+
+  test "should not save without fill the user fields" do
+    @mach = Machine.new(tipping: "q9we18", description: "qDCQER8")
+    assert_not @mach.save, "Saved the user without fill all fields"
+  end
+  
   test "should not save if fields don't match with pattern" do
     regex = /\A[a-zA-Z0-9]+\z/
     @mach = Machine.new(tipping: "q9we18", description: "qDCQER8", model: "123_1981FFD")
