@@ -1,10 +1,25 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-    background-color: #D8D8D8;
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
-.coming {
-    position: relative;
-    top: 130px;
+
+.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  background: #9c0f0c;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 2px;
 }

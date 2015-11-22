@@ -13,19 +13,19 @@
 <div class="form_size">
   <div class="form-group">
     <%= f.label :Nome %><br>
-    <%= f.text_field :name, :class => 'form-control'  %>
+    <%= f.text_field :name, :class => 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :Email %><br>
-    <%= f.text_field :email, :class => 'form-control'  %>
+    <%= f.email_field :email, :class => 'form-control'  %>
   </div>
   <div class="form-group">
     <%= f.label :CPF %><br>
-    <%= f.text_field :cpf, :class => 'form-control'  %>
+    <%= f.number_field :cpf, :class => 'form-control', min: '0', onkeypress: 'return isNumberKey(event)'  %>
   </div>
   <div class="form-group">
     <%= f.label :Senha %><br>
-    <%= f.text_field :password, :class => 'form-control', :type => 'password' %>
+    <%= f.password_field :password, :class => 'form-control', :type => 'password' %>
   </div>
   <div class="form-group">
     <%= select :user, :tipo, [['Solicitante'], ['Funcionário'], ['Administrador']], :class => 'selectpicker' %>

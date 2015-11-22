@@ -16,3 +16,15 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+function isOnlyNumberAndLettersKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if ((charCode > 47 && charCode < 58) || (charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+        return true;
+    return false;
+}
