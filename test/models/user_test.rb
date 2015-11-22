@@ -17,7 +17,6 @@ class UserTest < ActiveSupport::TestCase
   
   test "should have to validates email" do
     regex = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-#    regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z0-9]+\z/i 
     @user = User.new(email: 'jbsn@uf1pe.br')
     assert_match regex, @user.email
   end
