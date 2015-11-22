@@ -3,8 +3,8 @@
       <% if notice %>
         <center><div class="alert text-success" role="alert"><p id="notice"><%= notice %></p></div></center>
       <% end %>
-    <div class="panel panel-default">
-      <div class="panel-heading"><h4>Lista de Maquinas</h4></div>
+    <div class="panel panel-primary">
+      <div class="panel-heading MyFont"><h4>Lista de Maquinas</h4></div>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -21,8 +21,15 @@
               <td><%= machine.tipping %></td>
               <td><%= machine.description %></td>
               <td><%= machine.model %></td>
-              <td><i class="fa fa-search-plus"></i><%= link_to ' Ver', machine %></td>
-              <td><i class="fa fa-trash"></i><%= link_to ' Excluir', machine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td>
+                <center><a  href="<%= machine_path(machine) %>" style="color: black;"><i class="fa fa-search-plus"></i></a></center>
+              </td>
+              <td>
+                <center><a  href="<%= edit_machine_path(machine) %>" style="color: black;"><i class="fa fa-pencil"></i></a></center>
+              </td>
+              <td>
+                <center><a  href="<%= machine_path(machine) %>" data-method="delete" style="color: black;"><i class="fa fa-trash"></i></a></center>
+              </td>
             </tr>
           <% end %>
         </tbody>

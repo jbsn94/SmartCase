@@ -7,7 +7,7 @@ class LoginController < ApplicationController
     if @user && (params[:session][:password] == @user.password)
       session[:user_id] = @user.id
       session[:user_tipo] = @user.tipo
-      redirect_to '/machines'
+      redirect_to '/index'
     else
       redirect_to '/', notice: 'Você errou seu cpf ou sua senha, digite novamente.'
     end 

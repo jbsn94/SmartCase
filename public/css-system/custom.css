@@ -16,6 +16,61 @@
 .bgNeto {
     background-color: #16B849;
 }
+.navbar-default{
+    border-color: #4D4D4D;
+}
+.panel-green {
+    border-color: #5cb85c;
+}
+
+.panel-green > .panel-heading {
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.panel-green > a {
+    color: #5cb85c;
+}
+
+.panel-green > a:hover {
+    color: #3d8b3d;
+}
+.panel-red {
+    border-color: #d9534f;
+}
+
+.panel-red > .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.panel-red > a {
+    color: #d9534f;
+}
+
+.panel-red > a:hover {
+    color: #b52b27;
+}
+
+.panel-yellow {
+    border-color: #f0ad4e;
+}
+
+.panel-yellow > .panel-heading {
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.panel-yellow > a {
+    color: #f0ad4e;
+}
+
+.panel-yellow > a:hover {
+    color: #df8a13;
+}
 /*==============================================
     GENERAL  STYLES    
     =============================================*/
@@ -23,7 +78,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-h1 {
+.MyFont {
     font-family: 'Roboto Slab', serif;
 }
 
@@ -36,7 +91,7 @@ h1 {
 #page-wrapper {
     padding: 15px 15px;
     min-height: 600px;
-    background: #D2C9BF;
+    background: #F3F3F3;
    
 }
 #page-inner {
@@ -111,7 +166,11 @@ background-color: #00CE6F;
 color: #fff;
 }
  .bg-color-blue {
-background-color: #A95DF0;
+background-color: #428BCA;
+color: #fff;
+}
+.bg-color-black {
+background-color: #333333;
 color: #fff;
 }
   .bg-color-red {
@@ -338,14 +397,7 @@ color:#fff;
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
 background-color: #F2F2E7;
 }
-.navbar-default .navbar-toggle {
 
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-background-color: #FFF;
-
-}
 .nav > li > a > i {
     margin-right:10px;
 
@@ -386,8 +438,8 @@ line-height: 1.428571429;
     }
 
    .navbar {
- border-radius: 0px;
-}
+        border-radius: 0px;
+    }
    
 }
 
