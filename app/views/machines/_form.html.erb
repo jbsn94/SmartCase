@@ -1,21 +1,22 @@
 <br>
 <%= form_for(@machine) do |f| %>
   <% if @machine.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
+    <div id="error_explanation" class="alert alert-danger fonts">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle-o"></i></span></button>
-      <center><i class="fa fa-exclamation-triangle fa-2x"></i> Seu formulário contem <%= pluralize(@machine.errors.count, "erro") %><br></center>
+      <!-- <center><i class="fa fa-exclamation-triangle"></i> Seu formulário contem <%= pluralize(@machine.errors.count, "erro") %><br></center>
       <hr>
       <% @machine.errors.full_messages.each do |message| %>
-        <% if message == "Tipping only allows letters and numbers" %>
-          O campo <strong>tipo</strong> só aceita letras e numeros e não pode ficar em branco.<br>
-        <% elsif message == "Description only allows letters and numbers" %>
-          O campo <strong>descrição</strong> só aceita letras e numeros e não pode ficar em branco.<br>
-        <% elsif message == "Model only allows letters and numbers"  %>
-          O campo <strong>modelo</strong> só aceita letras e numeros e não pode ficar em branco.<br>
+        <% if message == "Tipping can't be blank" %>
+          O campo <strong>Tipo</strong> não pode ficar em branco.<br>
+        <% elsif message == "Description can't be blank" %>
+          O campo <strong>Descrição</strong> não pode ficar em branco.<br>
+        <% elsif message == "Model can't be blank"  %>
+          O campo <strong>Modelo</strong> não pode ficar em branco.<br>
         <% else %>
           <%= message %><br>
         <% end %>
-      <% end %>
+      <% end %>-->
+      Atenção, nenhum campo poderá ficar em branco.
     </div>
   <% end %>
 <div class="form_size">
