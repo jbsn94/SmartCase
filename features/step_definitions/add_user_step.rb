@@ -6,7 +6,7 @@ When(/^I press button "(.*?)"$/) do |arg1|
   visit(new_user_path)
 end
 Then(/^I should be on the Create a New User$/) do
-    assert_current_path(new_user_path)
+  assert_current_path(new_user_path)
 end
 When(/^I fill in "(.*?)" with "(.*?)"$/) do |arg1, arg2|
   fill_in(arg1, :with => arg2)
@@ -16,13 +16,13 @@ When(/^I choose in "(.*?)" with "(.*?)"$/) do |arg1, arg2|
 end
 When(/^I press "(.*?)"$/) do |arg1|
   @count = User.count
-  @user=User.new(name: "User Name", email: "user@email.com", cpf: "123123123-12", password: "kamehameha")
+  @user=User.new(name: "User Name", email: "username@cin.ufpe", cpf: "12345678910", password: "1234568910", tipo: "Solicitante")
   click_button(arg1)
   @user.save
-  
+  visit(user_path(@user.id))
 end
 Then(/^I should be on the New User Page$/) do
-  assert_current_path(user_path(1))
+  assert_current_path(user_path(@user.id))
 end
 Then(/^I should see a text "(.*?)"$/) do |arg1|
   page.has_content?(arg1)

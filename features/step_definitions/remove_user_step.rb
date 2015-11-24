@@ -1,5 +1,5 @@
 Given(/^I am on the users home page$/) do
-  @user=User.new(name: "User Name", email: "user@email.com", cpf: "123123123-12", password: "kamehameha")
+  @user=User.new(name: "User Name", email: "username@cin.ufpe", cpf: "12345678910", password: "1234568910", tipo: "Solicitante")
   @user.save
   visit(users_path)
 end

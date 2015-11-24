@@ -14,8 +14,6 @@
     <link href="/css-system/morris-0.4.3.min.css" rel="stylesheet" />
       <!-- CUSTOM STYLES-->
     <link href="/css-system/custom.css" rel="stylesheet" />
-     <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
 	<div id="wrapper">
@@ -35,7 +33,7 @@
                         <a  class="<%= @menuUser %>" href="<%= users_path %>"><i class="fa fa-user fa-3x fa-fw"></i> Usuários</a>
                     </li>
                     <li>
-                        <a  href="/logout" data-method="delete"><i class="fa fa-sign-out fa-3x fa-fw"></i> Sair</a>
+                        <a  href="/logout" data-confirm="Você deseja sair?" data-method="delete"><i class="fa fa-sign-out fa-3x fa-fw"></i> Sair</a>
                     </li>
                 </ul>
             </div>
