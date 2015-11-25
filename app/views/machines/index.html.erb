@@ -20,15 +20,15 @@
               <td><%= machine.tipping %></td>
               <td><%= machine.model %></td>
               <td>
-                <center><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, new_machine_path, value: "Ver maquina", style: "color: black;" %></center>
+                <center><%= link_to '<i class="fa fa-search-plus"></i>Ver'.html_safe, machine_path(machine), value: "Ver maquina", style: "color: black;" %></center>
                 <!-- <center><a  href="<%= machine_path(machine) %>" style="color: black;"><i class="fa fa-search-plus"></i></a></center> -->
               </td>
               <td>
-                <center><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_machine_path(machine), value: "Editar maquina", style: "color: black;" %></center>
+                <center><%= link_to '<i class="fa fa-pencil"></i>Editar'.html_safe, edit_machine_path(machine), value: "Editar maquina", style: "color: black;" %></center>
                 <!-- <center><a  href="<%= edit_machine_path(machine) %>" style="color: black;"><i class="fa fa-pencil"></i></a></center> -->
               </td>
               <td>
-                <center><%= link_to '<i class="fa fa-trash"></i>'.html_safe, machine_path(machine), value: "Deletar maquina", style: "color: black;", method: "delete", data: { confirm: "Você tem certeza?" } %></center>
+                <center><%= link_to '<i class="fa fa-trash"></i>Deletar'.html_safe, machine_path(machine), value: "Deletar maquina", style: "color: black;", method: "delete", data: { confirm: "Você tem certeza?" } %></center>
                 <!-- <center><a  href="<%= machine_path(machine) %>" data-confirm="Você tem certeza?" data-method="delete" style="color: black;"><i class="fa fa-trash"></i></a></center> -->
               </td>
             </tr>

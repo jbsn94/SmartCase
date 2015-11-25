@@ -19,8 +19,8 @@
           <tr>
             <td><%= user.name %></td>
             <td><%= user.tipo %></td>
-            <td><i class="fa fa-search-plus"></i><%= link_to ' Ver', user %></td>
-            <td><i class="fa fa-trash"></i><%= link_to ' Excluir', user, method: :delete %></td>
+            <td><i class="fa fa-search-plus"></i><%= link_to "Ver".html_safe, user %></td>
+            <td><i class="fa fa-trash"></i><%= link_to "Deletar".html_safe, user, method: :delete %></td>
           </tr>
         <% end %>
       </tbody>
