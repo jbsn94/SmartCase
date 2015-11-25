@@ -4,6 +4,7 @@ Feature: Edit Users
     I want remove users in the database
     
     Scenario:
+      When I login the system
       Given I am on the Users Page
       And I should see the name "User Name"
       When I click on link "Ver" in the user "User Name"

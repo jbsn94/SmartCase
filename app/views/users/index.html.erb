@@ -20,13 +20,13 @@
             <td><%= user.name %></td>
             <td><%= user.tipo %></td>
             <td><i class="fa fa-search-plus"></i><%= link_to ' Ver', user %></td>
-            <td><i class="fa fa-trash"></i><%= link_to ' Excluir', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><i class="fa fa-trash"></i><%= link_to ' Excluir', user, method: :delete %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
     </div>
     <br>
-    <button value ="Adicionar usuário" type="button" class="btn btn-danger" onclick="window.location.href='<%= new_user_path %>'" ><i class="fa fa-plus"></i> Adicionar usuário</button>
+    <%= link_to '<button type="button" class="btn btn-danger"><i class="fa fa-plus"></i> Adicionar usuário</button>'.html_safe, new_user_path %>
   </center>
 </div>

@@ -1,13 +1,11 @@
 Given(/^I am on the users home page$/) do
-  @user=User.new(name: "User Name", email: "username@cin.ufpe", cpf: "12345678910", password: "1234568910", tipo: "Solicitante")
-  @user.save
   visit(users_path)
 end
 Given(/^I should see "(.*?)"$/) do |arg1|
-  find( 'td', text: 'User Name', exact: true )
+  find('td', text: arg1)
 end
 When(/^I follow "(.*?)"$/) do |arg1|
-    click_link("Excluir")
+    click_link(arg1)
 end
 Then(/^I should back to the users home page$/) do
   assert_current_path(users_path)

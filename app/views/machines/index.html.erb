@@ -20,13 +20,16 @@
               <td><%= machine.tipping %></td>
               <td><%= machine.model %></td>
               <td>
-                <center><a  href="<%= machine_path(machine) %>" style="color: black;"><i class="fa fa-search-plus"></i></a></center>
+                <center><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, new_machine_path, value: "Ver maquina", style: "color: black;" %></center>
+                <!-- <center><a  href="<%= machine_path(machine) %>" style="color: black;"><i class="fa fa-search-plus"></i></a></center> -->
               </td>
               <td>
-                <center><a  href="<%= edit_machine_path(machine) %>" style="color: black;"><i class="fa fa-pencil"></i></a></center>
+                <center><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_machine_path(machine), value: "Editar maquina", style: "color: black;" %></center>
+                <!-- <center><a  href="<%= edit_machine_path(machine) %>" style="color: black;"><i class="fa fa-pencil"></i></a></center> -->
               </td>
               <td>
-                <center><a  href="<%= machine_path(machine) %>" data-confirm="Você tem certeza?" data-method="delete" style="color: black;"><i class="fa fa-trash"></i></a></center>
+                <center><%= link_to '<i class="fa fa-trash"></i>'.html_safe, machine_path(machine), value: "Deletar maquina", style: "color: black;", method: "delete", data: { confirm: "Você tem certeza?" } %></center>
+                <!-- <center><a  href="<%= machine_path(machine) %>" data-confirm="Você tem certeza?" data-method="delete" style="color: black;"><i class="fa fa-trash"></i></a></center> -->
               </td>
             </tr>
           <% end %>
@@ -34,6 +37,7 @@
       </table>
     </div>
     <br>
-    <button type="button" class="btn btn-danger" onclick="window.location.href='<%= new_machine_path %>'"><i class="fa fa-plus"></i> Adicionar maquina</button>
+    <%= link_to '<button type="button" value ="Adicionar maquina" class="btn btn-danger"><i class="fa fa-plus"></i> Adicionar maquina</button>'.html_safe, new_machine_path %>
+    <!-- <button type="button" class="btn btn-danger" onclick="window.location.href='<%= new_machine_path %>'"><i class="fa fa-plus"></i> Adicionar maquina</button> -->
   </center>
 </div>

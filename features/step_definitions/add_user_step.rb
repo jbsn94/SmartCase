@@ -1,9 +1,8 @@
 Given(/^I am on the list of users$/) do
-  visit(users_path)
+  visit(users_path)  
 end
 When(/^I press button "(.*?)"$/) do |arg1|
-  click_button(arg1)
-  visit(new_user_path)
+  click_link(arg1)
 end
 Then(/^I should be on the Create a New User$/) do
   assert_current_path(new_user_path)
@@ -16,7 +15,7 @@ When(/^I choose in "(.*?)" with "(.*?)"$/) do |arg1, arg2|
 end
 When(/^I press "(.*?)"$/) do |arg1|
   @count = User.count
-  @user=User.new(name: "User Name", email: "username@cin.ufpe", cpf: "12345678910", password: "1234568910", tipo: "Solicitante")
+  @user=User.new(name: "User Name 2", email: "username2@cin.ufpe", cpf: "12345678901", password: "1234568901", tipo: "Solicitante")
   click_button(arg1)
   @user.save
   visit(user_path(@user.id))

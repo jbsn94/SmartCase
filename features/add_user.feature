@@ -4,8 +4,9 @@ Feature: Adicionar Usuário
     I want de adicionar usuário na base de dados
     
     Scenario:
+      When I login the system
       Given I am on the list of users
-      When I press button "Adicionar usuário"
+      When I follow "Adicionar usuário"
       Then I should be on the Create a New User
       When I fill in "user[name]" with "User Name"
       And I fill in "user[email]" with "user@email.com"
