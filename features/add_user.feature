@@ -1,11 +1,11 @@
-Feature: Adicionar Usuário
-    As a funcionário
-    In order cadastrar usuário
-    I want de adicionar usuário na base de dados
+Feature: Add User
+    As a employee
+    In order add user
+    I want add user in database
     
     Scenario:
       When I login the system
-      Given I am on the list of users
+      Given I am on the Users Page
       When I follow "Adicionar usuário"
       Then I should be on the Create a New User
       When I fill in "user[name]" with "User Name"

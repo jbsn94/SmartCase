@@ -1,22 +1,22 @@
 Feature: Edit Users
     As a employee
     In order to edit users
-    I want remove users in the database
+    I want edit users info in the database
     
     Scenario:
       When I login the system
       Given I am on the Users Page
-      And I should see the name "User Name"
-      When I click on link "Ver" in the user "User Name"
+      And I should see "User Name"
+      When I follow "Ver"
       Then I should go to User Information
       When I press the button "Edit"
       Then I should go to Edit User Information
-      When I fill the field "user[name]" with "User Name 2"
-      And I fill the field "user[email]" with "user2@email.com"
-      And I fill the field "user[cpf]" with "123123123-22"
+      When I fill in "user[name]" with "User Name 2"
+      And I fill in "user[email]" with "user2@email.com"
+      And I fill in "user[cpf]" with "123123123-22"
       And I choose the "user[tipo]" with "Solicitante"
       And I press on "Salvar usuário"
       Then I should go to Edit User Information
-      And I should see the text "User was successfully updated."
-      And I should see the text "User Name 2"
+      And I should see a text "User was successfully updated."
+      And I should see a text "User Name 2"
       
