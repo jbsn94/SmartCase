@@ -6,7 +6,6 @@ end
 
 When(/^I press login button$/) do
     click_button('Entrar')
-    visit(index_path)
 end
 
 Then(/^I should be on the Index Page$/) do

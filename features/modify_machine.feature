@@ -7,7 +7,7 @@ Feature: Edit Machine
       When I login the system
       Given I am on the Machines Page
       And I should see "A254"
-      When I follow "Editar"
+      When I follow "Editar maquina"
       Then I should go to Edit Machine Information
       When I fill in "machine[tipping]" with "D25A"
       And I fill in "machine[description]" with "Machine was repaired"
