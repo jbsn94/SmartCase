@@ -6,7 +6,7 @@ Feature: Remove users
 Scenario:
   When I login the system
   Given I am on the users home page
-  And I should see "User Name"
-  When I follow "Excluir"
+  And I should see "User Name 2"
+  When I follow "Deletar usuário_2"
   Then I should back to the users home page
-  And I should not see the user "User Name"
+  And I should not see the user "User Name 2"

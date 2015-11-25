@@ -20,7 +20,7 @@
               <td><%= machine.tipping %></td>
               <td><%= machine.model %></td>
               <td>
-                <center><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, new_machine_path, value: "Ver maquina", style: "color: black;" %></center>
+                <center><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, machine_path(machine), value: "Ver maquina", style: "color: black;" %></center>
                 <!-- <center><a  href="<%= machine_path(machine) %>" style="color: black;"><i class="fa fa-search-plus"></i></a></center> -->
               </td>
               <td>

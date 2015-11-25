@@ -1,4 +1,6 @@
 Given(/^I am on the users home page$/) do
+  @user = User.new(name: "User Name 2", email: "username1@cin.ufpe", cpf: "123456", password: "123456", tipo: "Solicitante")
+  @user.save
   visit(users_path)
 end
 Given(/^I should see "(.*?)"$/) do |arg1|
@@ -11,7 +13,5 @@ Then(/^I should back to the users home page$/) do
   assert_current_path(users_path)
 end
 Then(/^I should not see the user "(.*?)"$/) do |arg1|
-    if page.has_content?("User Name")
-      find( 'td', text: 'User Name', exact: true )
-    end
+    !page.has_content?(arg1)
 end

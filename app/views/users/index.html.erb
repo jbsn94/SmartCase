@@ -20,7 +20,7 @@
             <td><%= user.name %></td>
             <td><%= user.tipo %></td>
             <td><i class="fa fa-search-plus"></i><%= link_to ' Ver', user %></td>
-            <td><i class="fa fa-trash"></i><%= link_to ' Excluir', user, method: :delete %></td>
+            <td><%= link_to '<i class="fa fa-trash"></i>'.html_safe, user_path(user), id: "Deletar usuário_#{user.id}", style: "color: black;", method: "delete", data: { confirm: "Você tem certeza?" } %>
           </tr>
         <% end %>
       </tbody>
