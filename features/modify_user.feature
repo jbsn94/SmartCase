@@ -7,9 +7,7 @@ Feature: Edit Users
       When I login the system
       Given I am on the Users Page
       And I should see "User Name"
-      When I follow "Ver"
-      Then I should go to User Information
-      When I press the button "Edit"
+      When I follow "Editar usuário"
       Then I should go to Edit User Information
       When I fill in "user[name]" with "User Name 2"
       And I fill in "user[email]" with "user2@email.com"

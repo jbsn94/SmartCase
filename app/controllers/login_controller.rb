@@ -9,7 +9,9 @@ class LoginController < ApplicationController
       session[:user_tipo] = @user.tipo
       redirect_to '/index'
     else
-      redirect_to '/', notice: 'Você errou seu cpf ou sua senha, digite novamente.'
+      flash.now[:notice] = 'Você errou seu cpf ou sua senha, digite novamente.'
+      render 'index'
+      #redirect_to '/', notice: 'Você errou seu cpf ou sua senha, digite novamente.'
     end 
   end
   def destroy 
