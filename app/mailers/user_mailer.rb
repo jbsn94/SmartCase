@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
  
   def welcome_email(user, pass)
     @user = user
-    @password = pass
+    @pass = pass
     @url  = 'http://smartcase.herokuapp.com'
     mail(to: @user.email, subject: 'Cadastro NATI - CCSA')
   end
