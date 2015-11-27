@@ -14,13 +14,17 @@
 	.fontLogo{
 		font-family: 'Roboto Slab', serif;
 	}
+	.coisa{
+		padding: 15px;
+		margin-bottom: 15px;
+	}
 </style>
 </head>
  
 <body bgcolor="#FFFFFF">
 
 <!-- HEADER -->
-<table class="head-wrap" bgcolor="#16304B">
+<table class="head-wrap" bgcolor="#16304B" style="border-radius: 4px;">
 	<tr>
 		<td></td>
 		<td class="header container" >
@@ -54,9 +58,9 @@
 						   <strong>Senha:</strong> <%= @pass %></p>
 						<p>Atenção, não responda esse email, ele é enviado automaticamente e não é monitorado.</p> 
 						<!-- Callout Panel -->
-						<p class="callout" style="background-color: rgba(255, 194, 60, 0.65); border-radius: 4px;">
+						<p class="coisa" style="background-color: rgba(255, 194, 60, 0.65); border-radius: 4px;">
 							Para acessar o nosso sistema basta <a href="https://smartcase.herokuapp.com" target="_blank">clicar aqui</a>.
-						</p><!-- /Callout Panel -->											
+						</p><!-- /Callout Panel -->						
 						<!-- social & contact -->
 						<table class="social" width="100%" style="background-color: #16304B; border-radius: 4px; color: white;">
 							<tr>
@@ -66,11 +70,9 @@
 										<tr>
 											<td>				
 												<p><strong>Informações para contato:</strong></p>
-												<p>
-													<strong>Email:</strong> nati@ufpe.br</br>
-													<strong>Ramal:</strong> 2345</br>
-													<a href="https://www.ufpe.br/ufpenova/" style="color: white;" target="_blank">https://www.ufpe.br/</a>
-												</p>
+												<p><strong>Email:</strong> nati@ufpe.br<p>
+												<p></p><strong>Ramal:</strong> 2345</p>
+												<p></p><a href="https://www.ufpe.br/ufpenova/" style="color: white;" target="_blank">https://www.ufpe.br/</a></p>
 											</td>
 										</tr>
 									</table><!-- /column 1 -->	
@@ -100,7 +102,7 @@
 				<tr>
 					<td align="center">
 						<p>
-							<i class="fa fa-copyright"></i> Copyright 2015 - Grupo SmartCase, todos os direitos reservados.
+							Copyright 2015 - Grupo SmartCase, todos os direitos reservados.
 						</p>
 					</td>
 				</tr>
