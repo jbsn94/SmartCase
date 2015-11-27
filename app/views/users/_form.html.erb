@@ -24,10 +24,6 @@
     <%= f.number_field :cpf, :class => 'form-control', min: '0', onkeypress: 'return isNumberKey(event)'  %>
   </div>
   <div class="form-group">
-    <%= f.label :Senha %><br>
-    <%= f.password_field :password, :class => 'form-control', :type => 'password' %>
-  </div>
-  <div class="form-group">
     <%= select :user, :tipo, [['Solicitante'], ['Funcionário'], ['Administrador']], :class => 'selectpicker' %>
   </div>
   <div class="actions">

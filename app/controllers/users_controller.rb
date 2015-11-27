@@ -33,10 +33,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @pass = (0...8).map { (97 + rand(25)).chr }.join
+    @pass = (0...6).map { (97 + rand(25)).chr }.join
     @user.password = @pass
     respond_to do |format|
       if @user.save
+        UserMailer.welcome_email(@user, @pass).deliver_now
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
