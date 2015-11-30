@@ -21,4 +21,15 @@ class UserTest < ActiveSupport::TestCase
     assert_match regex, @user.email
   end
   
+  test "should have to validates name" do
+    regex = /[A-Za-z]/
+    @user = User.new(name: "Victor Nunes")
+    assert_match regex, @user.name
+  end
+  
+  test "should have to validates cpf" do
+    regex = /[0-9]/
+    @user = User.new(cpf: "123456789")
+    assert_match regex, @user.cpf
+  end
 end
