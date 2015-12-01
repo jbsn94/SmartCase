@@ -20,8 +20,10 @@
             <td><%= user.name %></td>
             <td><%= user.tipo %></td>
             <td><center><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, user_path(user), id: "Ver usuário", style: "color: black;" %></center></td>
-            <td><center><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_user_path(user), id: "Editar usuário", style: "color: black;" %></center></td>
-            <td><center><%= link_to '<i class="fa fa-trash"></i>'.html_safe, user_path(user), id: "Deletar usuário", style: "color: black;", method: "delete", data: { confirm: "Você tem certeza?" } %></center></td>
+            <% if session[:user_tipo] == 'Administrador' %>
+              <td><center><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_user_path(user), id: "Editar usuário", style: "color: black;" %></center></td>
+              <td><center><%= link_to '<i class="fa fa-trash"></i>'.html_safe, user_path(user), id: "Deletar usuário", style: "color: black;", method: "delete", data: { confirm: "Você tem certeza?" } %></center></td>
+            <% end %>          
           </tr>
         <% end %>
       </tbody>
