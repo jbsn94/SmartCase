@@ -4,7 +4,7 @@ class Users < ActiveRecord::Migration
       t.column :name, :string
       t.column :email, :string
       t.column :cpf, :string
-      t.column :password, :string
+      t.column :password_digest, :string
       t.column :tipo, :string
     end
     create_table(:machines) do |t|

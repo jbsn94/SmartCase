@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115193112) do
+ActiveRecord::Schema.define(version: 20151202041817) do
 
   create_table "machines", force: :cascade do |t|
     t.string   "tipping"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20151115193112) do
     t.string "name"
     t.string "email"
     t.string "cpf"
-    t.string "password"
+    t.string "password_digest"
     t.string "tipo"
   end
 

@@ -4,7 +4,7 @@ class LoginController < ApplicationController
   
   def create
     @user = User.find_by(cpf: params[:session][:cpf])
-    if @user && (params[:session][:password] == @user.password)
+    if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       session[:user_tipo] = @user.tipo
       redirect_to '/index'
