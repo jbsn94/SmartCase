@@ -13,6 +13,8 @@
             Neto CSS
 =======================================*/
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+
 .bgNeto {
     background-color: #16B849;
 }
@@ -80,6 +82,9 @@ body {
 
 .MyFont {
     font-family: 'Roboto Slab', serif;
+}
+.MyFont2 {
+    font-family: 'Varela Round', sans-serif;
 }
 
 #wrapper {

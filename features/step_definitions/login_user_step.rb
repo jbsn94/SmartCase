@@ -1,5 +1,5 @@
 Given(/^I am on the login page$/) do
-  @user = User.new(name: "User Name", email: "username3@cin.ufpe", cpf: "12345", password: "12345", tipo: "Solicitante")
+  @user = User.new(name: "User Name", email: "username3@cin.ufpe", cpf: "12345", password: '12345', tipo: "Administrador")
   @user.save
   visit(root_path)
 end

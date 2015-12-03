@@ -8,7 +8,7 @@ Scenario:
   And I have two or more Users
   When I am on the Users Page
   And I should see "User Name Teste"
-  When I follow delete user "Deletar"
+  When I follow delete user "Deletar usuário"
   Then I should back to the users home page
-    And I should see a text "User was successfully destroyed"
+  And I should see a text "O usuário foi deletado com sucesso."
   And I should not see the user "User Name Teste"

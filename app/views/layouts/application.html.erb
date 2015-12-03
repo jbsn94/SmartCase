@@ -33,7 +33,7 @@
                         <a  class="<%= @menuUser %>" href="<%= users_path %>"><i class="fa fa-user fa-3x fa-fw"></i> Usuários</a>
                     </li>
                     <li>
-                        <a  href="/logout" data-confirm="Você deseja sair?" data-method="delete"><i class="fa fa-sign-out fa-3x fa-fw"></i> Sair</a>
+                        <a  href="" data-toggle="modal" data-target="#myLogout"><i class="fa fa-sign-out fa-3x fa-fw"></i> Sair</a>
                     </li>
                 </ul>
             </div>
@@ -52,5 +52,22 @@
         </center>
       </div>
     </footer>
+    <!-- Menu logout window -->
+    <div class="modal fade" id="myLogout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <center><h3 class="modal-title MyFont2">Você deseja mesmo sair?</h3></center>
+          </div>
+            <div class="modal-footer">
+              <center>
+              <%= link_to '<button type="button" class="btn btn-lg btn-success"><i class="fa fa-thumbs-o-up"></i> Sim</button>'.html_safe, logout_path, method: 'delete' %>
+              <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal"><i class="fa fa-thumbs-o-down"></i> Não</button>
+              </center>
+            </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>

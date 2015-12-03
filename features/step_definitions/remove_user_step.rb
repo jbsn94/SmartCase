@@ -6,7 +6,7 @@ When(/^I have two or more Users$/) do
 end
 
 When(/^I follow delete user "(.*?)"$/) do |arg1|
-  all(:link, arg1)[1].click
+  click_link('Deletar usuário2')
 end
 
 Then(/^I should back to the users home page$/) do
@@ -15,6 +15,6 @@ end
 
 Then(/^I should not see the user "(.*?)"$/) do |arg1|
     if page.has_content?(arg1)
-      find( 'td', text: arg1, exact: true )
+      find( 'td', text: "Teste", exact: true )
     end
 end
