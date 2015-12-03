@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-
+    
   end
 
   # GET /users/new
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         UserMailer.welcome_email(@user, @pass).deliver_now
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: "#{@user.name} foi criado com sucesso." }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'O usuário foi atualizado com sucesso.' }
+        format.html { redirect_to @user, notice: "#{@user.name} foi atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -65,9 +65,10 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @name = @user.name
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'O usuário foi deletado com sucesso.' }
+      format.html { redirect_to users_url, notice: "#{@name} foi deletado com sucesso." }
       format.json { head :no_content }
     end
   end

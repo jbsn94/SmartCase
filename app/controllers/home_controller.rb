@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def index
     @users = User.where(tipo: 'Solicitante').count
     @machines = Machine.count
-    @funcionarios = User.where(tipo: 'Funcionario').count + User.where(tipo: 'Administrador').count
+    @funcionarios = User.where(tipo: 'Funcionário').count + User.where(tipo: 'Administrador').count
     @menuHome = "active-menu"
   end
 end
