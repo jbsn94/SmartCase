@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20151203043631) do
+=======
+ActiveRecord::Schema.define(version: 20151115193112) do
+>>>>>>> d03c9a4b096b16a6316a0b6957ba418e9ff611ba
 
   create_table "machines", force: :cascade do |t|
     t.string   "tipping"
