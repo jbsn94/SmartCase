@@ -57,3 +57,29 @@
     <%= link_to '<button type="button" class="btn btn-danger"><i class="fa fa-plus"></i> Adicionar usuário</button>'.html_safe, new_user_path %>
   </center>
 </div>
+    <div class="modal fade" id="UserInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <center><h3 class="modal-title MyFont2">Perfil</h3></center>
+          </div>
+          <div class="modal-body">
+            <center>
+              <p>
+                <i class="glyphicon glyphicon glyphicon-user fa-5x"></i></br>
+                <strong>Nome:</strong> <%= User.find_by(id: session[:user_id]).name %></br>
+                <strong>Email:</strong> <%= User.find_by(id: session[:user_id]).email %></br>
+                <strong>CPF:</strong> <%= User.find_by(id: session[:user_id]).cpf %></br>
+                <!-- <strong>DATA:</strong> <%= Machine.find_by(id: '1').created_at.strftime("Criado em %m/%d/%Y") %></br> -->
+              </p>
+            </center>
+          </div>
+          <div class="modal-footer">
+            <center>
+              <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Fechar</button>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>

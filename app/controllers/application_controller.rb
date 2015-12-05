@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
   def require_user 
       redirect_to '/', notice: 'Você não está logado.' unless current_user
   end
+  def require_admin
+    redirect_to '/index', notice: 'Pagina apenas para Administradores.' unless current_user.tipo == 'Administrador'
+  end
+  def require_func
+    redirect_to '/index', notice: 'Pagina apenas para Funcionários e Administradores.' unless current_user.tipo == 'Funcionário' or current_user.tipo == 'Administrador'
+  end
 end

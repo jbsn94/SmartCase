@@ -16,6 +16,30 @@
     <link href="/css-system/custom.css" rel="stylesheet" />
 </head>
 <body>
+      <nav class="navbar-inverse">
+        <div>
+          <div style="color: white; padding: 15px 50px 5px 10px; float: left; font-size: 16px;">
+            <strong style="color: #46D400;"><i class="fa fa-spinner fa-spin"></i> Online:</strong> <%= User.find_by(id: session[:user_id]).name %>
+          </div>
+        </div>
+        <!--<div style="padding: 9px 0px 10px 1240px;">-->
+        <div class="col-md-offset-10" style="padding: 10px 0px 10px 50px;">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-cog"></i>
+              Configurações
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="" data-toggle="modal" data-target="#myInfo">Perfil</a></li>
+              <li><a href="<%= edit_user_path(session[:user_id]) %>">Editar</a></a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="" data-toggle="modal" data-target="#myLogout"><i class="fa fa-sign-out"></i> Sair</a></li>
+            </ul>
+          </div>
+        </div><!--/.navbar-collapse -->
+
+    </nav>
 	<div id="wrapper">
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
@@ -26,15 +50,20 @@
                     <li>
                         <a  href="#"><i class="fa fa-envelope-o fa-3x fa-fw"></i> Chamados</a>
                     </li>
-                    <li>
-                        <a  class="<%= @menuMachine %>" href="<%= machines_path %>"><i class="fa fa-desktop fa-3x fa-fw"></i> Maquinas</a>
-                    </li>
-                    <li>
-                        <a  class="<%= @menuUser %>" href="<%= users_path %>"><i class="fa fa-user fa-3x fa-fw"></i> Usuários</a>
-                    </li>
-                    <li>
+                    <% unless session[:user_tipo] == 'Solicitante' %>
+                      <li>
+                          <a  href="#"><i class="fa fa-tachometer fa-3x fa-fw"></i> Dashboard</a>
+                      </li>
+                      <li>
+                          <a  class="<%= @menuMachine %>" href="<%= machines_path %>"><i class="fa fa-desktop fa-3x fa-fw"></i> Maquinas</a>
+                      </li>
+                      <li>
+                          <a  class="<%= @menuUser %>" href="<%= users_path %>"><i class="fa fa-user fa-3x fa-fw"></i> Usuários</a>
+                      </li>
+                    <% end %>
+                    <!-- <li>
                         <a  href="" data-toggle="modal" data-target="#myLogout"><i class="fa fa-sign-out fa-3x fa-fw"></i> Sair</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>  
@@ -66,6 +95,32 @@
               <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal"><i class="fa fa-thumbs-o-down"></i> Não</button>
               </center>
             </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="myInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <center><h3 class="modal-title MyFont2">Perfil</h3></center>
+          </div>
+          <div class="modal-body">
+            <center>
+              <p>
+                <i class="glyphicon glyphicon glyphicon-user fa-5x"></i></br>
+                <strong>Nome:</strong> <%= User.find_by(id: session[:user_id]).name %></br>
+                <strong>Email:</strong> <%= User.find_by(id: session[:user_id]).email %></br>
+                <strong>CPF:</strong> <%= User.find_by(id: session[:user_id]).cpf %></br>
+                <!-- <strong>DATA:</strong> <%= Machine.find_by(id: '1').created_at.strftime("Criado em %m/%d/%Y") %></br> -->
+              </p>
+            </center>
+          </div>
+          <div class="modal-footer">
+            <center>
+              <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Fechar</button>
+            </center>
+          </div>
         </div>
       </div>
     </div>

@@ -2,7 +2,12 @@
   <center>
     <div class="form_size_show">
       <% if notice %>
-        <center><div class="alert text-success" role="alert"><p id="notice"><%= notice %></p></div></center>
+        <center>
+          <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <%= notice %>
+          </div>
+        </center>
       <% end %>
       <div class="panel panel-primary">
         <div class="panel-heading MyFont"><h4>Informações da Maquina</h4></div>

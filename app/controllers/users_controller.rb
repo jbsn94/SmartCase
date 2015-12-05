@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_user
   before_filter :set_menu
+  before_action :require_admin, only: [:destroy]
+  before_action :require_func, except: [:edit, :destroy, :update]
   
   #MarkMenu
   def set_menu
@@ -17,7 +19,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    
   end
 
   # GET /users/new
@@ -27,6 +28,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if session[:user_tipo] != 'Administrador' && @user.id != session[:user_id]
+      redirect_to index_path, notice: 'Perfil de usuário incorreto, você só poderá editar o seu perfil.'
+    end
   end
 
   # POST /users
@@ -53,8 +57,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: "#{@user.name} foi atualizado com sucesso." }
-        format.json { render :show, status: :ok, location: @user }
+        if session[:user_tipo] == 'Solicitante'
+          format.html { redirect_to index_path, notice: "#{@user.name} foi atualizado com sucesso." }
+        else
+          format.html { redirect_to @user, notice: "#{@user.name} foi atualizado com sucesso." }
+          format.json { render :show, status: :ok, location: @user }
+        end
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -76,7 +84,11 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      unless User.find_by(id: params[:id]).nil?
+        @user = User.find(params[:id])
+      else
+        redirect_to index_path, notice: 'Este usuário não existe.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
