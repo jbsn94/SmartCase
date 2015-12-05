@@ -1,0 +1,84 @@
+                <% if notice %>
+                    <center>
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <%= notice %>
+                        </div>
+                    </center>
+                <% end %>
+                <div class="col-lg-3 col-md-6 col-md-offset-0">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-user fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><%= @users %></div>
+                                    <div>Usuários</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <span class="text-success">Usuários cadastrados.</span>  
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-md-offset-0">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-desktop fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><%= @machines %></div>
+                                    <div>Maquinas</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <span class="text-info">Maquinas cadastradas.</span>  
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-envelope-o fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">0</div>
+                                    <div>Chamados</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <span class="text-warning">Chamadas cadastradas.</span>  
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-wrench fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><%= @funcionarios %></div>
+                                    <div>Funcionários</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <span class="text-warning">Funcionários cadastrados.</span>  
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>

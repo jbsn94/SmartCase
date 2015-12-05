@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203043631) do
+ActiveRecord::Schema.define(version: 20151205160606) do
 
   create_table "machines", force: :cascade do |t|
     t.string   "tipping"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151203043631) do
     t.string "cpf"
     t.string "password_digest"
     t.string "tipo"
+    t.date   "created_at"
   end
 
 end

@@ -89,7 +89,7 @@ body {
 
 #wrapper {
     width: 100%;
-    background: #B2120F;
+    background: #303130;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -166,7 +166,7 @@ font-size: 40px;
 border-radius: 50px;
 
 }
-    .bg-color-green {
+.bg-color-green {
 background-color: #00CE6F;
 color: #fff;
 }
@@ -290,7 +290,7 @@ font-size: 30px;
 font-weight: 700;
 }
 .active-menu {
-    background-color:#B2120F!important;
+    background-color: rgba(255, 255, 255, 0.07)!important;
 }
 
 .arrow {
@@ -325,8 +325,7 @@ font-weight: 700;
 	padding:0;
 }
 .sidebar-collapse .nav > li > a {
-	color:#000;
-	background:#00000;
+	color:#fff;
 	text-shadow:none;
 	
 }
@@ -334,14 +333,14 @@ font-weight: 700;
 	padding:15px 10px;
 }
 .sidebar-collapse > .nav > li {
-	border-bottom: 1px solid rgba(107, 108, 109, 0.19);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.29);
 	
 }
 /* Cor do menu quando o mouser passar por cima.*/
 .sidebar-collapse .nav > li > a:hover,
 .sidebar-collapse .nav > li > a:focus {
 	transition: color 0.3s, background-color 0.3s, border-color 0.3s;
-	background:#E3E3D9;
+	background: rgba(255, 255, 255, 0.07)!important;
 	outline:0;
 }
 
@@ -394,7 +393,7 @@ color:#fff;
 }
 
 .navbar-default {
-     
+    background: transparent;
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {

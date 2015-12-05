@@ -9,7 +9,7 @@
     <script type='text/javascript' src='/css-system/js/pace.min.js'></script>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
      <!-- FONTAWESOME STYLES-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
      <!-- MORRIS CHART STYLES-->
     <link href="/css-system/morris-0.4.3.min.css" rel="stylesheet" />
       <!-- CUSTOM STYLES-->
@@ -31,8 +31,8 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="" data-toggle="modal" data-target="#myInfo">Perfil</a></li>
-              <li><a href="<%= edit_user_path(session[:user_id]) %>">Editar</a></a></li>
+              <li><a href="" data-toggle="modal" data-target="#myInfo"><i class="fa fa-user"></i> Perfil</a></li>
+              <li><a href="<%= edit_user_path(session[:user_id]) %>"><i class="fa fa-pencil-square-o"></i> Editar</a></a></li>
               <li role="separator" class="divider"></li>
               <li><a href="" data-toggle="modal" data-target="#myLogout"><i class="fa fa-sign-out"></i> Sair</a></li>
             </ul>
@@ -52,7 +52,7 @@
                     </li>
                     <% unless session[:user_tipo] == 'Solicitante' %>
                       <li>
-                          <a  href="#"><i class="fa fa-tachometer fa-3x fa-fw"></i> Dashboard</a>
+                          <a  class="<%= @menuPainel %>" href="<%= painel_path %>"><i class="fa fa-tachometer fa-3x fa-fw"></i> Dashboard</a>
                       </li>
                       <li>
                           <a  class="<%= @menuMachine %>" href="<%= machines_path %>"><i class="fa fa-desktop fa-3x fa-fw"></i> Maquinas</a>
@@ -74,10 +74,10 @@
 			</div>
         </div>
     </div>
-    <footer class="footer foot_back">
+    <footer class="footer foot_back" style="background-color: #151515;">
       <div class="container">
         <center>
-            <p class="text-muted"><i class="fa fa-copyright"></i> Copyright 2015 - Grupo <strong>SmartCase</strong>, todos os direitos reservados.</p>
+            <p class="text-muted" style="color: #fff;"><i class="fa fa-copyright"></i> Copyright 2015 - Grupo <strong>SmartCase</strong>, todos os direitos reservados.</p>
         </center>
       </div>
     </footer>
@@ -91,8 +91,8 @@
           </div>
             <div class="modal-footer">
               <center>
-              <%= link_to '<button type="button" class="btn btn-lg btn-success"><i class="fa fa-thumbs-o-up"></i> Sim</button>'.html_safe, logout_path, method: 'delete' %>
-              <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal"><i class="fa fa-thumbs-o-down"></i> Não</button>
+              <%= link_to '<button type="button" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Sim</button>'.html_safe, logout_path, method: 'delete' %>
+              <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Não</button>
               </center>
             </div>
         </div>
@@ -109,10 +109,10 @@
             <center>
               <p>
                 <i class="glyphicon glyphicon glyphicon-user fa-5x"></i></br>
+                <strong>CPF:</strong> <%= User.find_by(id: session[:user_id]).cpf %></br>
                 <strong>Nome:</strong> <%= User.find_by(id: session[:user_id]).name %></br>
                 <strong>Email:</strong> <%= User.find_by(id: session[:user_id]).email %></br>
-                <strong>CPF:</strong> <%= User.find_by(id: session[:user_id]).cpf %></br>
-                <!-- <strong>DATA:</strong> <%= Machine.find_by(id: '1').created_at.strftime("Criado em %m/%d/%Y") %></br> -->
+                <strong>CRIADO EM:</strong> <%= User.find_by(id: session[:user_id]).created_at.strftime("%m/%d/%Y") %></br>
               </p>
             </center>
           </div>
