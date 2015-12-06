@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user.password = @pass
     respond_to do |format|
       if @user.save
-        UserMailer.welcome_email(@user, @pass).deliver_now
+        UserMailer.welcome_email(@user, @pass).deliver_now unless Rails.env.development?
         format.html { redirect_to @user, notice: "#{@user.name} foi criado com sucesso." }
         format.json { render :show, status: :created, location: @user }
       else

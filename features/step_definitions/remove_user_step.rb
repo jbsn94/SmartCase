@@ -6,7 +6,7 @@ When(/^I have two or more Users$/) do
 end
 
 When(/^I follow delete user "(.*?)"$/) do |arg1|
-  click_link('Deletar usuário2')
+  click_link("Deletar usuário#{@user2.id}")
 end
 
 Then(/^I should back to the users home page$/) do
@@ -14,7 +14,5 @@ Then(/^I should back to the users home page$/) do
 end
 
 Then(/^I should not see the user "(.*?)"$/) do |arg1|
-    if page.has_content?(arg1)
-      find( 'td', text: "Teste", exact: true )
-    end
+  has_no_content?(@user2.name)
 end

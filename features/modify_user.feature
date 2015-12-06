@@ -13,7 +13,7 @@ Feature: Edit Users
       And I fill in "user[email]" with "user2@email.com"
       And I fill in "user[cpf]" with "123123123-22"
       And I choose the "user[tipo]" with "Solicitante"
-      And I press on "Salvar usuário"
+      And I press on "Salvar"
       Then I should go to Edit User Information
       And I should see a text "User was successfully updated."
       And I should see a text "User Name 2"

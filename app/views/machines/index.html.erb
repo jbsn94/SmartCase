@@ -34,7 +34,7 @@
               </td>
               <% if session[:user_tipo] == 'Administrador' %>
                 <td>
-                  <center><a  href="" id="Deletar usuário" data-toggle="modal" data-target="#DeletarMaquina<%= machine.id %>" style="color: black;"><i class="fa fa-trash"></i></a></center>
+                  <center><a  href="" data-toggle="modal" data-target="#DeletarMaquina<%= machine.id %>" style="color: black;"><i class="fa fa-trash"></i></a></center>
                   <!-- Confirmation -->
                   <div class="modal fade" id="DeletarMaquina<%= machine.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">

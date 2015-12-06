@@ -12,7 +12,7 @@ Feature: Add User
       And I fill in "user[email]" with "user@email.com"
       And I fill in "user[cpf]" with "123123123-12"
       And I choose in "user[tipo]" with "Solicitante"
-      And I press "Salvar usuário"
+      And I press "Salvar"
       Then I should be on the New User Page
       And I should see a text "User was successfully created."
       And I should see a text "User Name"
