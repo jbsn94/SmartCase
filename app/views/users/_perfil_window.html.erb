@@ -1,0 +1,26 @@
+<div class="modal fade" id="myInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header green-modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <center><h3 class="modal-title MyFont2">Perfil</h3></center>
+      </div>
+      <div class="modal-body">
+        <center>
+          <p>
+            <i class="glyphicon glyphicon glyphicon-user fa-5x"></i></br>
+            <strong>Nome:</strong> <%= @usuario.name %></br>
+            <strong>Email:</strong> <%= @usuario.email %></br>
+            <strong>CPF:</strong> <%= @usuario.cpf %></br>
+            <strong>CRIADO EM:</strong> <%= @usuario.created_at.strftime("%m/%d/%Y") %></br>
+          </p>
+        </center>
+      </div>
+      <div class="modal-footer green-modal-footer">
+         <center>
+          <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Fechar</button>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>

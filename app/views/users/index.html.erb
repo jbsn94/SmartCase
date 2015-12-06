@@ -20,6 +20,7 @@
       </thead>
       <tbody>
         <% @users.each do |user| %>
+          <% @user_del = user %>
           <tr>
             <td href="#"><%= user.name %></td>
             <td><%= user.tipo %></td>
@@ -28,24 +29,8 @@
               <td><center><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_user_path(user), id: "Editar usuário", style: "color: black;" %></center></td>
               <td>
                 <center><a  href="" id="Deletar usuário" data-toggle="modal" data-target="#DeleteUser<%= user.id %>" style="color: black;"><i class="fa fa-trash"></i></a></center>
-                <!-- Confirmation -->
-                <div class="modal fade" id="DeleteUser<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <center><h3 class="modal-title MyFont2">Você deseja mesmo deletar este usuário?</h3></center>
-                      </div>
-                      <div class="modal-footer">
-                        <center>
-                        <%= link_to '<button type="button" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Sim</button>'.html_safe, user_path(user), method: 'delete', id: "Deletar usuário#{user.id}" %>
-                        <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Não</button>
-                        </center>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End confirmation -->
+                <!-- Delete User Window -->
+                <%= render 'delete_window' %>
               </td>
             <% end %>          
           </tr>

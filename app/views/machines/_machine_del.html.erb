@@ -1,0 +1,16 @@
+<div class="modal fade" id="DeletarMaquina<%= @machine_del.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <center><h3 class="modal-title MyFont2">Você deseja mesmo deletar esta maquina?</h3></center>
+      </div>
+      <div class="modal-footer">
+        <center>
+          <%= link_to '<button type="button" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Sim</button>'.html_safe, machine_path(@machine_del), method: 'delete', id: "Deletar maquina#{@machine_del.id}" %>
+          <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Não</button>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>

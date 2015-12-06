@@ -7,22 +7,24 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
     <script type='text/javascript' src='/js/pace.min.js'></script>
+    <!-- Fonte do GOOGLE -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-     <!-- FONTAWESOME STYLES-->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
-     <!-- MORRIS CHART STYLES-->
+     <!-- CSS Customizado para o template-->
     <link href="/css/morris-0.4.3.min.css" rel="stylesheet" />
-      <!-- CUSTOM STYLES-->
+      <!-- CSS Customizado para o template-->
     <link href="/css/custom.css" rel="stylesheet" />
 </head>
 <body>
+      <!-- Variavel @usuario utilizada para fazer uma única requisição para mostrar as informações do usuário na barra 
+            e quando ele for visualizar o seu perfil -->
+      <% @usuario = User.find_by(id: session[:user_id]) %>
+      <!-- Início do NavBar -->
       <nav class="navbar-inverse">
         <div>
           <div style="color: white; padding: 15px 50px 5px 10px; float: left; font-size: 16px;">
-            <strong style="color: #46D400;"><i class="fa fa-spinner fa-spin"></i> Online:</strong> <%= User.find_by(id: session[:user_id]).name %>
+            <strong style="color: #46D400;"><i class="fa fa-spinner fa-spin"></i> Online:</strong> <%= @usuario.name %>
           </div>
         </div>
-        <!--<div style="padding: 9px 0px 10px 1240px;">-->
         <div class="col-md-offset-10" style="padding: 10px 0px 10px 50px;">
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -37,8 +39,8 @@
               <li><a href="" data-toggle="modal" data-target="#myLogout"><i class="fa fa-sign-out"></i> Sair</a></li>
             </ul>
           </div>
-        </div><!--/.navbar-collapse -->
-
+        </div>
+        <!--Fim NavBar -->
     </nav>
 	<div id="wrapper">
         <nav class="navbar-default navbar-side" role="navigation">
@@ -82,47 +84,8 @@
       </div>
     </footer>
     <!-- Menu logout window -->
-    <div class="modal fade" id="myLogout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <center><h3 class="modal-title MyFont2">Você deseja mesmo sair?</h3></center>
-          </div>
-            <div class="modal-footer">
-              <center>
-              <%= link_to '<button type="button" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Sim</button>'.html_safe, logout_path, method: 'delete' %>
-              <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Não</button>
-              </center>
-            </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="myInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <center><h3 class="modal-title MyFont2">Perfil</h3></center>
-          </div>
-          <div class="modal-body">
-            <center>
-              <p>
-                <i class="glyphicon glyphicon glyphicon-user fa-5x"></i></br>
-                <strong>CPF:</strong> <%= User.find_by(id: session[:user_id]).cpf %></br>
-                <strong>Nome:</strong> <%= User.find_by(id: session[:user_id]).name %></br>
-                <strong>Email:</strong> <%= User.find_by(id: session[:user_id]).email %></br>
-                <strong>CRIADO EM:</strong> <%= User.find_by(id: session[:user_id]).created_at.strftime("%m/%d/%Y") %></br>
-              </p>
-            </center>
-          </div>
-          <div class="modal-footer">
-            <center>
-              <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Fechar</button>
-            </center>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'users/logout_window' %>
+    <!-- Perfil do usuário -->
+    <%= render 'users/perfil_window' %>
 </body>
 </html>

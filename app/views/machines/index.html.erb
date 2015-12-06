@@ -21,6 +21,7 @@
       
         <tbody>
           <% @machines.each do |machine| %>
+            <% @machine_del = machine %>
             <tr>
               <td><%= machine.tipping %></td>
               <td><%= machine.model %></td>
@@ -35,24 +36,8 @@
               <% if session[:user_tipo] == 'Administrador' %>
                 <td>
                   <center><a  href="" data-toggle="modal" data-target="#DeletarMaquina<%= machine.id %>" style="color: black;"><i class="fa fa-trash"></i></a></center>
-                  <!-- Confirmation -->
-                  <div class="modal fade" id="DeletarMaquina<%= machine.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <center><h3 class="modal-title MyFont2">Você deseja mesmo deletar esta maquina?</h3></center>
-                        </div>
-                        <div class="modal-footer">
-                          <center>
-                          <%= link_to '<button type="button" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Sim</button>'.html_safe, machine_path(machine), method: 'delete', id: "Deletar maquina#{machine.id}" %>
-                          <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Não</button>
-                          </center>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End confirmation -->
+                  <!-- Machine delete window -->
+                  <%= render 'machine_del' %>
                 </td>
               <% end %>
             </tr>
