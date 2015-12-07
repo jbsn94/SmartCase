@@ -1,0 +1,53 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger fonts">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle-o"></i></span></button>
+      
+      <% @order.errors.full_messages.each do |message| %>
+        <% if message == "Title can't be blank" %>
+          O campo <strong>Titulo</strong> não pode ficar em branco.<br>
+        <% elsif message == "Description can't be blank" %>
+          O campo <strong>Descrição</strong> não pode ficar em branco.<br>
+        <% elsif message == "Local can't be blank"  %>
+          O campo <strong>Local</strong> não pode ficar em branco.<br>
+        <% else %>
+          <%= message %><br>
+        <% end %>
+      <% end %>
+      Atenção, nenhum campo poderá ficar em branco.
+    </div>
+  <% end %>
+<div class="form_size">
+  <div class="form-group">
+    <%= f.text_field :title, :class => 'form-control', placeholder: 'Titulo do Chamado' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :local, :class => 'form-control', placeholder: 'Local do Chamado' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição' %>
+  </div>
+
+  <% if session[:user_tipo] != 'Solicitante' %>
+    <div class="form-group">
+      <%= select :order, :status, [['Ativo'], ['Encerrado']], :class => 'selectpicker' %>
+    </div>
+  <% else %>
+    <div class="form-group">
+      <%= select :order, :status, [['Ativo']], :class => 'selectpicker' %>
+    </div>
+  <% end %>
+  <center>
+    <div class="actions">
+      <div class="btn-group btn-group-xs" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <%= f.submit 'Salvar Chamado', :class => 'btn btn-danger' %> 
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= orders_path %>'"><i class="fa fa-undo"></i> Voltar</button>
+        </div>
+      </div>
+    </div>
+  </center>
+</div>
+<% end %>

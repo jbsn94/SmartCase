@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151205160606) do
+ActiveRecord::Schema.define(version: 20151207031007) do
 
   create_table "machines", force: :cascade do |t|
     t.string   "tipping"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 20151205160606) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "local"
+    t.text     "description"
+    t.string   "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "title"
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string "name"
