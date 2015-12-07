@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   post 'login' => 'login#create'
   delete 'logout' => 'login#destroy'
   get 'logout' => 'login#destroy'

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+    has_many :orders
+    
     VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
     VALID_NAME_REGEX = /[A-Za-z]/
     VALID_CPF_REGEX = /[0-9]/
