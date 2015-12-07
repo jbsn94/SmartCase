@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
   #MarkMenu
   def set_menu
-    @menuMachine = "active-menu"
+    @menuOrder = "active-menu"
   end
 
   # GET /orders
