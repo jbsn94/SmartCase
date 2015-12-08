@@ -7,7 +7,9 @@ class HomeController < ApplicationController
   def dashboard
     @users = User.where(tipo: 'Solicitante').count
     @machines = Machine.count
+    @chamados = Order.count
     @funcionarios = User.where(tipo: 'Funcionário').count + User.where(tipo: 'Administrador').count
+    @current_order = Order.all
     @menuPainel = "active-menu"
   end
 end

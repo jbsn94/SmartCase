@@ -1,12 +1,19 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :require_user
+  before_action :require_solic, only: [:index, :new, :create]
+  before_action :require_func, only: [:edit, :update]
+  before_action :require_admin, only: [:destroy]
   before_filter :set_menu
   before_action :current_user, only: [:create, :edit,:update,:destroy]
 
   #MarkMenu
   def set_menu
-    @menuOrder = "active-menu"
+    if current_user.tipo == 'Solicitante'
+      @menuOrder = 'active-menu'
+    else
+      @menuPainel = 'active-menu'
+    end
   end
 
   # GET /orders
@@ -27,6 +34,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @machines = Machine.all
   end
 
   # POST /orders
@@ -77,6 +85,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:title, :local, :description, :status)
+      params.require(:order).permit(:title, :local, :description, :status, :machine_id)
     end
 end

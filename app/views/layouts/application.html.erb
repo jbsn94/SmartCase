@@ -15,14 +15,11 @@
     <link href="/css/custom.css" rel="stylesheet" />
 </head>
 <body>
-      <!-- Variavel @usuario utilizada para fazer uma única requisição para mostrar as informações do usuário na barra 
-            e quando ele for visualizar o seu perfil -->
-      <% @usuario = User.find_by(id: session[:user_id]) %>
       <!-- Início do NavBar -->
       <nav class="navbar-inverse">
         <div>
           <div style="color: white; padding: 15px 50px 5px 10px; float: left; font-size: 16px;">
-            <strong style="color: #46D400;"><i class="fa fa-spinner fa-spin"></i> Online:</strong> <%= @usuario.name %>
+            <strong style="color: #46D400;"><i class="fa fa-spinner fa-spin"></i> Online:</strong> <%= current_user.name %>
           </div>
         </div>
         <div class="col-md-offset-10" style="padding: 10px 0px 10px 50px;">
@@ -34,7 +31,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <li><a href="" data-toggle="modal" data-target="#myInfo"><i class="fa fa-user"></i> Perfil</a></li>
-              <li><a href="<%= edit_user_path(session[:user_id]) %>"><i class="fa fa-pencil-square-o"></i> Editar</a></a></li>
+              <li><a href="<%= edit_user_path(current_user.id) %>"><i class="fa fa-pencil-square-o"></i> Editar</a></a></li>
               <li role="separator" class="divider"></li>
               <li><a href="" data-toggle="modal" data-target="#myLogout"><i class="fa fa-sign-out"></i> Sair</a></li>
             </ul>
@@ -47,20 +44,22 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li>
-                        <a  href="/index" class="<%= @menuHome %>"><i class="fa fa-home fa-3x fa-fw"></i> Ìnicio</a>
+                        <a href="/index" class="<%= @menuHome %>"><i class="fa fa-home fa-3x fa-fw"></i> Ìnicio</a>
                     </li>
+                    <% if current_user.tipo == 'Solicitante' %>
                     <li>
-                        <a  href="<%= orders_path %>"><i class="fa fa-envelope-o fa-3x fa-fw"></i> Chamados</a>
+                        <a class="<%= @menuOrder %>" href="<%= orders_path %>"><i class="fa fa-envelope-o fa-3x fa-fw"></i> Chamados</a>
                     </li>
-                    <% unless session[:user_tipo] == 'Solicitante' %>
+                    <% end %>
+                    <% unless current_user.tipo == 'Solicitante' %>
                       <li>
-                          <a  class="<%= @menuPainel %>" href="<%= painel_path %>"><i class="fa fa-tachometer fa-3x fa-fw"></i> Dashboard</a>
+                          <a class="<%= @menuPainel %>" href="<%= painel_path %>"><i class="fa fa-tachometer fa-3x fa-fw"></i> Dashboard</a>
                       </li>
                       <li>
-                          <a  class="<%= @menuMachine %>" href="<%= machines_path %>"><i class="fa fa-desktop fa-3x fa-fw"></i> Maquinas</a>
+                          <a class="<%= @menuMachine %>" href="<%= machines_path %>"><i class="fa fa-desktop fa-3x fa-fw"></i> Maquinas</a>
                       </li>
                       <li>
-                          <a  class="<%= @menuUser %>" href="<%= users_path %>"><i class="fa fa-user fa-3x fa-fw"></i> Usuários</a>
+                          <a class="<%= @menuUser %>" href="<%= users_path %>"><i class="fa fa-user fa-3x fa-fw"></i> Usuários</a>
                       </li>
                     <% end %>
                     <!-- <li>

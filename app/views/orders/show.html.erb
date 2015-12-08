@@ -9,35 +9,53 @@
           </div>
         </center>
       <% end %>
-      <div class="panel panel-primary">
+      <div class="panel panel-blue-escuro">
         <div class="panel-heading MyFont"><h4>Informações do Chamado</h4></div>
-        <table class="table table-bordered">
+        <table class="table">
           <thead>
             <tr>
-              <th>Titulo</th>
+              <th>ID</th>
+              <th>Criado</th>
+              <th>Título</th>
               <th>Local</th>
+              <th>Data</th>
+              <th>ID da maquina</th>
               <th>Status</th>
-              <th><center>Descrição</center></th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td><%= @order.id %></td>
+              <td><%= User.find_by(id: @order.user_id).name %></td>
               <td><%= @order.title %></td>
               <td><%= @order.local %></td>
+              <td><%= @order.created_at.strftime("%m/%d/%Y") %></td>
+              <td><%= @order.machine_id %></td>
               <td><%= @order.status %></td>
-              <td><div class="text"><%= @order.description %></div></td>
             </tr>
           </tbody>
         </table>
       </div>
+        <div class="col-md-13">
+          <div class="panel panel-blue-escuro">
+            <div class="panel-heading MyFont">Descrição</div>
+              <div class="panel-body">
+                <textarea rows="10" cols="116" disabled><%= @order.description %></textarea>
+              </div>
+            </div>
+        </div>
+      <% if current_user.tipo != 'Solicitante' %>
       <div class="btn-group btn-group-xs" role="group" aria-label="...">
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-danger" onclick="window.location.href='<%= edit_order_path(@order) %>'"><i class="fa fa-pencil-square-o"></i> Editar</button>
         </div>
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= orders_path %>'"><i class="fa fa-undo"></i> Voltar</button>
+          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= painel_path %>'"><i class="fa fa-undo"></i> Voltar</button>
         </div>
       </div>
+      <% else %>
+      <%= link_to '<button type="button" class="btn btn-danger">Voltar</button>'.html_safe, orders_path, id: 'Voltar' %>
+      <% end %>
     </div>
   </center>
 </div>

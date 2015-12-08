@@ -9,10 +9,10 @@
         <center>
           <p>
             <i class="glyphicon glyphicon glyphicon-user fa-5x"></i></br>
-            <strong>Nome:</strong> <%= @usuario.name %></br>
-            <strong>Email:</strong> <%= @usuario.email %></br>
-            <strong>CPF:</strong> <%= @usuario.cpf %></br>
-            <strong>CRIADO EM:</strong> <%= @usuario.created_at.strftime("%m/%d/%Y") %></br>
+            <strong>Nome:</strong> <%= current_user.name %></br>
+            <strong>Email:</strong> <%= current_user.email %></br>
+            <strong>CPF:</strong> <%= current_user.cpf %></br>
+            <strong>CRIADO EM:</strong> <%= current_user.created_at.strftime("%m/%d/%Y") %></br>
           </p>
         </center>
       </div>
