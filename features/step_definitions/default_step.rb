@@ -7,11 +7,20 @@ When(/^I login the system$/) do
   @mach = Machine.new(tipping: "A254", description: "Machine has problem", model: "ASUS24")
   @mach.save
   
+  @order = Order.new(title: "Machine has problem", description: "Machine needs repair on diplay of the monitor", local: "CCSA", status: "Ativo", user_id: @user.id)
+  @order.save
+  
   visit(root_path)
   fill_in("session[cpf]", :with => "12345")
   fill_in("session[password]", :with => "12345")
   click_button('Entrar')
   assert_current_path(index_path)
+end
+
+# Passo apenas para orders
+
+Given(/^I am on the Orders Page$/) do
+  visit(orders_path)  
 end
 
 # Passo apenas para users
@@ -44,4 +53,8 @@ end
 
 Then(/^I should see a text "(.*?)"$/) do |arg1|
   page.has_content?(arg1)
+end
+
+When(/^I choose in "(.*?)" with "(.*?)"$/) do |arg1, arg2|
+    select(arg2, :from => arg1)
 end

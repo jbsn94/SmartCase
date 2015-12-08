@@ -12,7 +12,7 @@ Feature: Edit Machine
       When I fill in "machine[tipping]" with "D25A"
       And I fill in "machine[description]" with "Machine was repaired"
       And I fill in "machine[model]" with "DELL25A"
-      And I press on the "Salvar maquina"
+      And I press on the machine button "Salvar maquina"
       Then I should go to Edit Machine Information
       And I should see a text "User was successfully updated."
       And I should see a text "D25A"
