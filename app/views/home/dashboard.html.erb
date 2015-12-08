@@ -52,7 +52,7 @@
                                     <i class="fa fa-envelope-o fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">0</div>
+                                    <div class="huge"><%= @chamados %></div>
                                     <div>Chamados</div>
                                 </div>
                             </div>
@@ -82,4 +82,111 @@
                         </div>
                     </div>
                 </div>
-                <div class="merda">asdhashdasdh</div>
+<!-- Painel de chamados pendentes -->
+<div class="col-md-12">
+    <div class="panel panel-yellow">
+      <div class="panel-heading MyFont"><h4><center>Chamados Pendentes</center></h4></div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Ver</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @current_order.each do |order| %>
+            <% if order.status == 'Pendente' %>
+            <tr>
+              <td><%= order.id %></td>
+              <td><%= order.title %></td>
+              <td><%= order.local %></td>
+              <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
+              <td><%= order.status %></td>
+              <td>
+                <%= link_to '<i class="fa fa-plus-square-o"></i>'.html_safe, order_path(order), id: "Ver chamado", style: "color: black;" %>
+              </td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
+<!-- Final de painel de chamados pendentes -->
+<!-- Painel de chamados ativos -->
+<div class="col-md-12">
+    <div class="panel panel-green">
+      <div class="panel-heading MyFont"><h4><center>Chamados Ativos</center></h4></div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Ver</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @current_order.each do |order| %>
+            <% if order.status == 'Ativo' %>
+            <tr>
+              <td><%= order.id %></td>
+              <td><%= order.title %></td>
+              <td><%= order.local %></td>
+              <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
+              <td><%= order.status %></td>
+              <td>
+                <%= link_to '<i class="fa fa-plus-square-o"></i>'.html_safe, order_path(order), id: "Ver chamado", style: "color: black;" %>
+              </td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
+<!-- Final de painel de chamados ativos -->
+<!-- Painel de chamados encerrados -->
+<div class="col-md-12">
+    <div class="panel panel-red">
+      <div class="panel-heading MyFont"><h4><center>Chamados Encerrados</center></h4></div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Ver</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @current_order.each do |order| %>
+            <% if order.status == 'Encerrado' %>
+            <tr>
+              <td><%= order.id %></td>
+              <td><%= order.title %></td>
+              <td><%= order.local %></td>
+              <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
+              <td><%= order.status %></td>
+              <td>
+                <%= link_to '<i class="fa fa-plus-square-o"></i>'.html_safe, order_path(order), id: "Ver chamado", style: "color: black;" %>
+              </td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
+    <!-- Final de painel de chamados encerrados -->

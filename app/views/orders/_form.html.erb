@@ -18,34 +18,47 @@
     </div>
   <% end %>
 <div class="form_size">
+  <% if current_user.tipo != 'Funcionário' %>
   <div class="form-group">
     <%= f.text_field :title, :class => 'form-control', placeholder: 'Titulo do Chamado' %>
   </div>
   <div class="form-group">
-    <%= f.text_field :local, :class => 'form-control', placeholder: 'Local do Chamado' %>
+    <%= f.text_field :local, :class => 'form-control', placeholder: 'Local do Chamado Ex: Sala A205' %>
   </div>
   <div class="form-group">
     <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição' %>
   </div>
-
-  <% if session[:user_tipo] != 'Solicitante' %>
+  <% end %>
+  <% if current_user.tipo != 'Solicitante' %>
     <div class="form-group">
-      <%= select :order, :status, [['Ativo'], ['Encerrado']], :class => 'selectpicker' %>
+      <%= label_tag 'Status' %>
+      <%= select :order, :status, [['Pendente'], ['Ativo'], ['Encerrado']], :class => 'selectpicker' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag 'Maquina' %>
+      <%= select :order, :machine_id, @machines.map{ |m| [m.id] }.push(['Não cadastrada']), :class => 'selectpicker' %>
     </div>
   <% else %>
     <div class="form-group">
-      <%= select :order, :status, [['Ativo']], :class => 'selectpicker' %>
+      <%= label_tag 'Status' %>
+      <%= select :order, :status, [['Pendente']], :class => 'selectpicker' %>
     </div>
   <% end %>
   <center>
     <div class="actions">
       <div class="btn-group btn-group-xs" role="group" aria-label="...">
         <div class="btn-group" role="group">
-          <%= f.submit 'Salvar Chamado', :class => 'btn btn-danger' %> 
+          <%= f.submit 'Salvar', :class => 'btn btn-danger' %> 
         </div>
+        <% if current_user.tipo == 'Solicitante' %>
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-danger" onclick="window.location.href='<%= orders_path %>'"><i class="fa fa-undo"></i> Voltar</button>
         </div>
+        <% else %>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= order_path(@order.id) %>'"><i class="fa fa-undo"></i> Voltar</button>
+        </div>
+        <% end %>
       </div>
     </div>
   </center>

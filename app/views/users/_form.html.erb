@@ -29,8 +29,8 @@
   <div class="form-group">
     <%= f.email_field :email, :class => 'form-control', placeholder: 'Email'  %>
   </div>
-  <% if session[:user_tipo] != 'Solicitante' %>
-    <% if session[:user_tipo] == 'Administrador' %>
+  <% if current_user.tipo != 'Solicitante' %>
+    <% if current_user.tipo == 'Administrador' %>
       <div class="form-group">
         <%= f.number_field :cpf, :class => 'form-control', min: '0', onkeypress: 'return isNumberKey(event)', placeholder: 'CPF'  %>
       </div>

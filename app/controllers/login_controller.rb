@@ -6,8 +6,6 @@ class LoginController < ApplicationController
     @user = User.find_by(cpf: params[:session][:cpf])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      session[:user_tipo] = @user.tipo
-      session[:user_name] = @user.name
       redirect_to '/index'
     else
       flash.now[:notice] = 'Você errou seu CPF ou sua senha, digite novamente.'
@@ -17,8 +15,8 @@ class LoginController < ApplicationController
   end
   def destroy 
     if session[:user_id]
-      session[:user_id] = session[:user_tipo] = session[:user_name] = nil 
-      redirect_to '/' 
+      session[:user_id] = nil 
+      redirect_to '/', notice: 'Você saiu da sua conta com sucesso.'
     else
       redirect_to '/' 
     end
