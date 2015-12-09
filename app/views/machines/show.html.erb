@@ -37,5 +37,43 @@
         </div>
       </div>
     </div>
+    <hr>
+    <!-- Painel de chamados encerrados -->
+    <div class="panel panel-blue-escuro">
+      <div class="panel-heading MyFont"><h4>Histórico de chamados</h4></div>
+      <% unless @chamados == [] %>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Ver</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @chamados.each do |order| %>
+            <% if order.status == 'Encerrado' %>
+            <tr>
+              <td><%= order.id %></td>
+              <td><%= order.title %></td>
+              <td><%= order.local %></td>
+              <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
+              <td><%= order.status %></td>
+              <td>
+                <%= link_to '<i class="fa fa-plus-square-o"></i>'.html_safe, order_path(order), id: "Ver chamado", style: "color: black;" %>
+              </td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+      <% else %>
+        <p class="lead">Nenhum chamado encontrado para esta maquina.</p>
+      <% end %>
+    </div>
+    <!-- Final de painel de chamados encerrados -->
   </center>
 </div>

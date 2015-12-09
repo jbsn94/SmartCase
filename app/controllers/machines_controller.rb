@@ -19,6 +19,7 @@ class MachinesController < ApplicationController
   # GET /machines/1
   # GET /machines/1.json
   def show
+    @chamados = Order.where(machine_id: params[:id])
   end
 
   # GET /machines/new
@@ -78,6 +79,6 @@ class MachinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def machine_params
-      params.require(:machine).permit(:tipping, :description, :model)
+      params.require(:machine).permit(:tipping, :description, :model, orders_attributes: [:title, :local, :description, :status, :machine_id])
     end
 end
