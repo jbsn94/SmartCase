@@ -1,0 +1,37 @@
+<div class ="container-fluid">
+  <center>
+      <% if notice %>
+        <center>
+          <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <%= notice %>
+          </div>
+        </center>
+      <% end %>
+    <!-- Painel de chamados abertos -->
+    <div class="panel panel-green">
+      <div class="panel-heading MyFont"><h4>Interações</h4></div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @comments.each do |comment| %>
+            <tr>
+              <td><%= comment.description %></td>
+              <td>
+                <%= link_to '<i class="fa fa-plus-square-o"></i>'.html_safe, comment_path(comment), id: "Visualizar Interação", style: "color: black;" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Final de painel de chamados encerrados -->
+    <br>
+    <%= link_to '<button type="button" value ="Adicionar Chamado" class="btn btn-danger"><i class="fa fa-envelope-o"></i> Criar Comentário</button>'.html_safe, new_order_path %>
+  </center>
+</div>
