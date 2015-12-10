@@ -6,11 +6,9 @@ class LoginController < ApplicationController
     @user = User.find_by(cpf: params[:session][:cpf])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to '/index'
+      redirect_to index_path
     else
-      flash.now[:notice] = 'Você errou seu CPF ou sua senha, digite novamente.'
-      render 'index'
-      #redirect_to '/', notice: 'Você errou seu cpf ou sua senha, digite novamente.'
+      redirect_to '/', notice: 'Você errou seu cpf ou sua senha, digite novamente.'
     end 
   end
   def destroy 
