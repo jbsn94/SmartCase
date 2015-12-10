@@ -1,0 +1,41 @@
+<%= form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger fonts">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle-o"></i></span></button>
+      
+      <% @comment.errors.full_messages.each do |message| %>
+        <% if message == "Description can't be blank" %>
+          O campo <strong>Descrição</strong> não pode ficar em branco.<br>
+        <% else %>
+          <%= message %><br>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<div class="form_size">
+  <% if current_user.tipo != 'Funcionário' %>
+  <div class="form-group">
+    <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição' %>
+  </div>
+  <% end %>
+  <center>
+    <div class="actions">
+      <div class="btn-group btn-group-xs" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <%= f.submit 'Salvar', :class => 'btn btn-danger' %> 
+        </div>
+        <% if current_user.tipo == 'Solicitante' %>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= comments_path %>'"><i class="fa fa-undo"></i> Voltar</button>
+        </div>
+        <% else %>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= comment_path(@comment.id) %>'"><i class="fa fa-undo"></i> Voltar</button>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </center>
+</div>
+<% end %>
+
