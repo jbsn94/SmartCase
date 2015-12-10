@@ -29,6 +29,7 @@
         </table>
         </div>
         </div>
+      <% if current_user.tipo == 'Administrador' %>
       <div class="btn-group btn-group-xs" role="group" aria-label="...">
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-danger" onclick="window.location.href='<%= edit_user_path(@user) %>'"><i class="fa fa-pencil-square-o"></i> Editar</button>
@@ -37,6 +38,49 @@
           <button type="button" class="btn btn-danger" onclick="window.location.href='<%= users_path %>'"><i class="fa fa-undo"></i> Voltar</button>
         </div>
       </div>
+      <% else %>
+      <button type="button" class="btn btn-danger" onclick="window.location.href='<%= users_path %>'">Voltar</button>
+      <% end %>
     </div>
+    <br>
+    <!-- Chamados realizados -->
+    <div class="panel panel-blue-escuro">
+      <div class="panel-heading MyFont"><h4><center>Chamados Realizados</center></h4></div>
+      <% @current_order = @user.orders %>
+      <% unless @current_order == [] %>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Ver</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @current_order.each_with_index do |order, index| %>
+            <tr>
+              <td><%= index+1 %></td>
+              <td><%= order.id %></td>
+              <td><%= order.title %></td>
+              <td><%= order.local %></td>
+              <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
+              <td><%= order.status %></td>
+              <td>
+                <%= link_to '<i class="fa fa-plus-square-o"></i>'.html_safe, order_path(order), id: "Ver chamado", style: "color: black;" %>
+              </td>
+            </tr>
+            <% end %>
+        </tbody>
+      </table>
+      <% else %>
+      <center><p class="lead">Nenhum chamado encontrado para este usuário.</p></center>
+      <% end %>
+    </div>
+    <!-- Final de chamados realizados -->
   </center>
 </div>

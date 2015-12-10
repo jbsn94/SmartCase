@@ -84,15 +84,11 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      unless User.find_by(id: params[:id]).nil?
-        @user = User.find(params[:id])
-      else
-        redirect_to index_path, notice: 'Este usuário não existe.'
-      end
+      @user = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :cpf, :password, :tipo)
+      params.require(:user).permit(:name, :email, :cpf, :password, :tipo, orders_attributes: [:title, :local, :description, :status, :machine_id])
     end
 end
