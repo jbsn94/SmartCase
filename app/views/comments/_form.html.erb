@@ -13,7 +13,7 @@
     </div>
   <% end %>
 <div class="form_size">
-  <% if current_user.tipo != 'Funcionário' %>
+  <% if current_user.tipo != 'Solicitante' %>
   <div class="form-group">
     <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição' %>
   </div>
