@@ -25,6 +25,8 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @comments = Comment.where(:order_id => params[:id])
+    
   end
 
   # GET /orders/new
@@ -86,6 +88,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:title, :local, :description, :status, :machine_id)
+      params.require(:order).permit(:title, :local, :description, :status, :machine_id, orders_attributes: [:description, :user_id, :created_at]) 
     end
 end
