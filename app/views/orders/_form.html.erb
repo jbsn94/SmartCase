@@ -1,3 +1,4 @@
+<% @machines = Machine.all %>
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation" class="alert alert-danger fonts">

@@ -39,8 +39,8 @@
         <div class="col-md-13">
           <div class="panel panel-blue-escuro">
             <div class="panel-heading MyFont">Descrição</div>
-              <div class="panel-body">
-                <textarea rows="10" cols="116" disabled><%= @order.description %></textarea>
+              <div class="panel-body" style="word-wrap: break-word; text-align: left;">
+                <%= @order.description %>
               </div>
             </div>
         </div>
