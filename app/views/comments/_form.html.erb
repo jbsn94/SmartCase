@@ -13,11 +13,11 @@
     </div>
   <% end %>
 <div class="form_size">
-  <% if current_user.tipo != 'Solicitante' %>
   <div class="form-group">
     <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição' %>
+    <%= f.hidden_field :user_id, :class => 'form-control', placeholder: 'Descrição', :value => current_user.id %>
+    <%= f.hidden_field :order_id, :class => 'form-control', placeholder: 'Descrição', :value => @order %>
   </div>
-  <% end %>
   <center>
     <div class="actions">
       <div class="btn-group btn-group-xs" role="group" aria-label="...">
@@ -30,7 +30,7 @@
         </div>
         <% else %>
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= comment_path(@comment.id) %>'"><i class="fa fa-undo"></i> Voltar</button>
+          <button type="button" class="btn btn-danger" onclick="window.location.href='<%= order_path(@order) %>'"><i class="fa fa-undo"></i> Voltar</button>
         </div>
         <% end %>
       </div>

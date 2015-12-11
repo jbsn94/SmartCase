@@ -53,9 +53,21 @@
           <button type="button" class="btn btn-danger" onclick="window.location.href='<%= painel_path %>'"><i class="fa fa-undo"></i> Voltar</button>
         </div>
       </div>
+      <% if @order.status != 'Encerrado' %>
+      <%= link_to '<button type="button" class="btn btn-success"><i class="fa fa-comments-o"></i> Adicionar Atividade</button>'.html_safe, {:controller => 'comments', :action => 'new', :id => @order.id} %>
+      <% end %>
       <% else %>
       <%= link_to '<button type="button" class="btn btn-danger">Voltar</button>'.html_safe, orders_path, id: 'Voltar' %>
       <% end %>
     </div>
   </center>
 </div>
+<br>
+<% @comments.each do |comment| %>
+  <div class="panel panel-blue-escuro">
+  <div class="panel-heading"><%= User.find_by(:id => comment.user_id).name %></div>
+  <div class="panel-body">
+   <%= comment.description %>
+  </div>
+</div>
+<% end %>
