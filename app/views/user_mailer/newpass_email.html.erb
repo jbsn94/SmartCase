@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- If you delete this meta tag, Half Life 3 will never be released. -->
+<meta name="viewport" content="width=device-width" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>SmartCase</title>
+	
+<link rel="stylesheet" type="text/css" href="/css-system/email.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+	.fontLogo{
+		font-family: 'Roboto Slab', serif;
+	}
+	.coisa{
+		padding: 15px;
+		margin-bottom: 15px;
+	}
+</style>
+</head>
+ 
+ 
+<body bgcolor="#FFFFFF">
+
+<!-- HEADER -->
+<table bgcolor="#16304B" style="border-radius: 4px; width: 100%;">
+	<tr>
+		<td></td>
+		<td class="header container" >
+				<div style="display: block!important; max-width: 600px!important; margin: 0 auto!important; clear: both!important;">
+					<table>
+						<tr>
+							<td><h4 class="collapse fontLogo" style="color: white;">Núcleo de Apoio a Tecnologia de Informação</h4></td>
+						</tr>
+					</table>
+				</div>
+		</td>
+		<td></td>
+	</tr>
+</table><!-- /HEADER -->
+
+
+<!-- BODY -->
+<table class="body-wrap">
+	<tr>
+		<td></td>
+		<td class="container" bgcolor="#FFFFFF">
+
+			<div class="content">
+			<table>
+				<tr>
+					<td>
+						<h3>Sr(a), <%= @user.name %></h3>
+						<p class="lead">Foi solicitado em nosso sistema uma alteração de senha para sua conta, logo abaixo segue seu CPF com sua nova senha,</br>
+						apenas sua senha foi altera.</p>
+						<p>Seus dados:</p>
+						<p><strong>CPF:</strong> <%= @user.cpf %></p>
+						<p><strong>Senha:</strong> <%= @pass %></p>
+						<p>Atenção, não responda esse email, ele é enviado automaticamente e não é monitorado.</p> 
+						<!-- Callout Panel -->
+						<p style="background-color: rgba(255, 194, 60, 0.65); border-radius: 4px; padding: 15px; margin-bottom: 15px;">
+							Para acessar o nosso sistema basta <a href="https://smartcase.herokuapp.com" target="_blank">clicar aqui</a>.
+						</p><!-- /Callout Panel -->						
+						<!-- social & contact -->
+						<table class="social" width="100%" style="background-color: #16304B; border-radius: 4px; color: white;">
+							<tr>
+								<td>
+									<!-- column 1 -->
+									<table align="left" class="column">
+										<tr>
+											<td>				
+												<p style="color: white;"><strong>Informações para contato:</strong></p>
+												<p style="color: white;"><strong>Email:</strong> nati@ufpe.br<p>
+												<p style="color: white;"><strong>Ramal:</strong> 2345</p>
+												<p><a href="https://www.ufpe.br/ufpenova/" style="color: white;" target="_blank">https://www.ufpe.br/</a></p>
+											</td>
+										</tr>
+									</table><!-- /column 1 -->	
+									<span class="clear"></span>	
+								</td>
+							</tr>
+						</table><!-- /social & contact -->
+						
+					</td>
+				</tr>
+			</table>
+			</div><!-- /content -->
+									
+		</td>
+		<td></td>
+	</tr>
+</table><!-- /BODY -->
+<!-- FOOTER -->
+<table class="footer-wrap">
+	<tr>
+		<td></td>
+		<td class="container">
+			
+				<!-- content -->
+				<div class="content">
+				<table>
+				<tr>
+					<td align="center">
+						<p>
+							&copy; Copyright 2015 - Grupo SmartCase, todos os direitos reservados.
+						</p>
+					</td>
+				</tr>
+			</table>
+				</div><!-- /content -->
+				
+		</td>
+		<td></td>
+	</tr>
+</table><!-- /FOOTER -->
+</body>
+</html>

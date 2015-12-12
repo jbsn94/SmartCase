@@ -23,7 +23,7 @@
     <%= f.text_field :tipping, :class => 'form-control', placeholder: 'Tipo da maquina', onkeypress: 'return isOnlyNumberAndLettersKey(event)' %>
   </div>
   <div class="form-group">
-    <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição' %>
+    <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição', rows: 20 %>
   </div>
   <div class="form-group">
     <%= f.text_field :model, :class => 'form-control', placeholder: 'Modelo da maquina', onkeypress: 'return isOnlyNumberAndLettersKey(event)' %>

@@ -27,7 +27,7 @@
     <%= f.text_field :local, :class => 'form-control', placeholder: 'Local do Chamado Ex: Sala A205' %>
   </div>
   <div class="form-group">
-    <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição' %>
+    <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição', rows: 20 %>
   </div>
   <% end %>
   <% if current_user.tipo != 'Solicitante' %>
@@ -41,8 +41,8 @@
     </div>
   <% else %>
     <div class="form-group">
-      <%= label_tag 'Status' %>
-      <%= select :order, :status, [['Pendente']], :class => 'selectpicker' %>
+      <%= f.hidden_field :status, :class => 'selectpicker', :value => 'Pendente' %>
+      <%= f.hidden_field :machine_id, :class => 'selectpicker', :value => 'Não cadastrada' %>
     </div>
   <% end %>
   <center>

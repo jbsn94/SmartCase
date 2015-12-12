@@ -25,8 +25,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @comments = Comment.where(:order_id => params[:id])
-    
+    @comments = Comment.where(:order_id => params[:id]).reverse_order.paginate(:page => params[:page], :per_page => 3)
   end
 
   # GET /orders/new

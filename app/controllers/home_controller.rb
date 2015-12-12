@@ -9,7 +9,7 @@ class HomeController < ApplicationController
     @machines = Machine.count
     @chamados = Order.count
     @funcionarios = User.where(tipo: 'Funcionário').count + User.where(tipo: 'Administrador').count
-    @current_order = Order.all
+    @current_order = Order.all.reverse_order
     @menuPainel = "active-menu"
   end
 end

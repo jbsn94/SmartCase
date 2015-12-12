@@ -1,12 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_filter :set_menu
-<<<<<<< HEAD
-  before_action :current_func, only: [:create, :edit,:update,:destroy]
-=======
   before_action :require_user
   before_action :require_func
->>>>>>> 179b2bbe6df013d02dbeddc8d47ab820d017a503
   
   #MarkMenu
   def set_menu

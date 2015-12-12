@@ -19,7 +19,7 @@ class MachinesController < ApplicationController
   # GET /machines/1
   # GET /machines/1.json
   def show
-    @chamados = Order.where(machine_id: params[:id])
+    @chamados = Order.where(machine_id: params[:id]).reverse_order
   end
 
   # GET /machines/new
