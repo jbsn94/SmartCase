@@ -6,7 +6,7 @@
         <center><h3 class="modal-title MyFont2">Requisição de nova senha</h3></center>
       </div>
       <div class="modal-body">
-        <%= form_for(:session, url: '/recover') do |f| %>
+        <%= form_for(:recover, url: '/recover') do |f| %>
           <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
             <%= f.text_field :cpf, :placeholder => "Digite um CPF", class: "form-control" %>

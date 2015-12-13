@@ -3,7 +3,7 @@ class LoginController < ApplicationController
   end
   
   def recover
-    @user = User.find_by(cpf: params[:session][:cpf])
+    @user = User.find_by(cpf: params[:recover][:cpf])
     unless @user.nil?
       @pass = (0...6).map { (97 + rand(25)).chr }.join
       @user.password = @pass
