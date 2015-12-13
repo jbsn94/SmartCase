@@ -17,6 +17,22 @@ When(/^I login the system$/) do
   assert_current_path(index_path)
 end
 
+When(/^I login the system like a user$/) do
+  @user = User.new(name: "Solicitante", email: "username1@cin.ufpe", cpf: "123", password: "123", tipo: "Solicitante")
+  @user.save
+  
+  @mach = Machine.new(tipping: "A254", description: "Machine has problem", model: "ASUS24")
+  @mach.save
+  
+  @order = Order.new(title: "Machine has problem", description: "Machine needs repair on diplay of the monitor", local: "CCSA", status: "Ativo", user_id: @user.id)
+  @order.save
+  
+  visit(root_path)
+  fill_in("session[cpf]", :with => "123")
+  fill_in("session[password]", :with => "123")
+  click_button('Entrar')
+  assert_current_path(index_path)
+end
 # Passo apenas para orders
 
 Given(/^I am on the Orders Page$/) do
