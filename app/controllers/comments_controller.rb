@@ -41,9 +41,10 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to order_path(@comment.order_id), notice: 'Atividade adicionada com sucesso!' }
+        format.html { redirect_to order_path(@comment.order_id) }
         format.json { render :show, status: :created, location: @comment }
       else
+        @order = @comment.order_id
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end

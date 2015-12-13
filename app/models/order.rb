@@ -8,7 +8,7 @@ class Order < ActiveRecord::Base
     
     validates :title, :description, :local, :status, presence: true
     validates :title, format: { with: VALID_LETTERS_REGEX }
-    validates :description, length: { maximum: 500, message: " muito longa. Digite até 500 caracteres" }, format: {with: VALID_ALL_REGEX }
-    validates :local, length: { maximum: 50 }, format: { with: VALID_LOCAL_REGEX }
+    validates :description, length: { maximum: 500, message: "muito longa." }, format: {with: VALID_ALL_REGEX }
+    validates :local, length: { maximum: 50, message: "muito longo." }, format: { with: VALID_LOCAL_REGEX }
     
 end

@@ -24,7 +24,10 @@
                         <div class="input-group margin-bottom-sm">
                           <span class="input-group-addon"><span class="fa fa-lock fa-fw"></span></span>
                             <%= f.password_field :password, :placeholder => "Senha", class: "form-control" %>
-                        </div><p></p>
+                        </div>
+                        <p>
+                            <a  href="" id="Recuperar senha" data-toggle="modal" data-target="#RecoverUser">Esqueceu sua senha?</a>
+                        </p>
                         <%= button_tag( :class => "btn-submit btn btn-lg btn-danger btn-block", value: "Entrar") do %>
                           <i class="fa fa-sign-in"></i> Entrar
                         <% end %>
@@ -34,3 +37,6 @@
         </div>
     </div>
 </div>
+<!-- Window recover -->
+<%= render 'recover_window' %>
+<!-- End window recover -->

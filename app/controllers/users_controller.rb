@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    if session[:user_tipo] != 'Administrador' && @user.id != session[:user_id]
+    if current_user.tipo != 'Administrador' && @user.id != session[:user_id]
       redirect_to index_path, notice: 'Perfil de usuário incorreto, você só poderá editar o seu perfil.'
     end
   end
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
-        if session[:user_tipo] == 'Solicitante'
+        if current_user.tipo == 'Solicitante'
           format.html { redirect_to index_path, notice: "#{@user.name} foi atualizado com sucesso." }
         else
           format.html { redirect_to @user, notice: "#{@user.name} foi atualizado com sucesso." }

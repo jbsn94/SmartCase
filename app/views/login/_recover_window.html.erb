@@ -1,0 +1,26 @@
+<div class="modal fade" id="RecoverUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <center><h3 class="modal-title MyFont2">Requisição de nova senha</h3></center>
+      </div>
+      <div class="modal-body">
+        <%= form_for(:session, url: '/recover') do |f| %>
+          <div class="input-group margin-bottom-sm">
+            <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+            <%= f.text_field :cpf, :placeholder => "Digite um CPF", class: "form-control" %>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <center>
+            <%= button_tag( :class => "btn-submit btn btn-success", value: "Enviar") do %>
+              <i class="fa fa-share"></i> Enviar
+            <% end %>
+        <% end %>
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Sair</button>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>

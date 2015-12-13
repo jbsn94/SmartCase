@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root 'login#index'
   get 'index' => 'home#index'
   get 'painel' => 'home#dashboard'
+  post 'recover' => 'login#recover'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

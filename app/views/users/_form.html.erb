@@ -4,19 +4,19 @@
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle-o"></i></span></button>
       <% @user.errors.full_messages.each do |message| %>
         <% if message == 'Name can\'t be blank' %>
-          Nome não poderá ficar em branco.<br>
+          O <strong>Nome</strong> não poderá ficar em branco.<br>
         <% elsif message == 'Name is invalid' %>
-          Nome invalido.<br>
+          <strong>Nome</strong> invalido.<br>
         <% elsif message == 'Email can\'t be blank' %>
-          Email não poderá ficar em branco.<br>
+          <strong>Email</strong> não poderá ficar em branco.<br>
         <% elsif message == 'Email is invalid' %>
-          Email invalido.<br>
+          <strong>Email</strong> invalido.<br>
         <% elsif message == 'Cpf can\'t be blank' %>
-          CPF não poderá ficar em branco.<br>
+          O <strong>CPF</strong> não poderá ficar em branco.<br>
         <% elsif message == 'Cpf is invalid' %>
-          CPF invalido.<br>
+          <strong>CPF</strong> invalido.<br>
         <% elsif message == "Cpf already exists. Try again" %>
-          Esse CPF já está cadastrado.<br>
+          Este <strong>CPF</strong> já está cadastrado.<br>
         <% else %>
           <%= message %>
         <% end %>
@@ -38,7 +38,7 @@
         <%= select :user, :tipo, [['Solicitante'], ['Funcionário'], ['Administrador']], :class => 'selectpicker' %>
     <% else %>
       <div class="form-group">  
-        <%= select :user, :tipo, [['Solicitante']], :class => 'selectpicker' %>
+        <%= f.hidden_field :tipo, :class => 'selectpicker', :value => 'Funcionário' %>
     <% end %>
     </div>
   <% end %>
@@ -48,7 +48,7 @@
         <%= f.submit 'Salvar', :class => 'btn btn-danger'%>
       </div>
       <div class="btn-group" role="group">
-        <% if session[:user_tipo] != 'Solicitante'%>
+        <% if current_user != 'Solicitante'%>
           <button type="button" class="btn btn-danger" onclick="window.location.href='<%= users_path %>'"><i class="fa fa-undo"></i> Voltar</button>
         <% else %>
           <button type="button" class="btn btn-danger" onclick="window.location.href='<%= index_path %>'"><i class="fa fa-undo"></i> Voltar</button>
