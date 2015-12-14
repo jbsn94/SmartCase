@@ -27,6 +27,9 @@ When(/^I login the system like a user$/) do
   @order = Order.new(title: "Machine has problem", description: "Machine needs repair on diplay of the monitor", local: "CCSA", status: "Ativo", user_id: @user.id)
   @order.save
   
+  @comment = Comment.new(description: "Display receice repairs", order_id: @order.id)
+  @comment.save
+  
   visit(root_path)
   fill_in("session[cpf]", :with => "123")
   fill_in("session[password]", :with => "123")
@@ -37,6 +40,10 @@ end
 
 Given(/^I am on the Orders Page$/) do
   visit(orders_path)  
+end
+
+Then(/^I am on the Order Information$/) do
+    visit(order_path(1))
 end
 
 # Passo apenas para users
