@@ -14,7 +14,7 @@
         <% elsif message == "Local muito longo." %>
           O campo <strong>Local</strong> não pode conter mais que 50 caracteres.<br>
         <% elsif message == "Description muito longa." %>
-          O campo <strong>Descrição</strong> não pdoe conter mais que 500 caracteres.<br>
+          O campo <strong>Descrição</strong> não pode conter mais que 500 caracteres.<br>
         <% end %>
       <% end %>
     </div>
@@ -29,7 +29,7 @@
   </div>
   <div class="form-group">
     <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição', rows: 10, onKeyDown: 'conta()', onKeyUp: "conta()" %>
-    <input type="text" name='caracteres' size='4' class="col-md-offset-11" style="border-color: transparent;">
+    <input type="text" name='caracteres' size='4' class="col-md-offset-11" style="border-color: transparent;" readonly>
   </div>
   <% end %>
   <% if current_user.tipo != 'Solicitante' %>

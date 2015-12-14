@@ -17,7 +17,7 @@
 <div class="form_size">
   <div class="form-group">
     <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição', rows: 15, onKeyDown: 'conta2()', onKeyUp: "conta2()" %>
-    <input type="text" name='caracteres' size='4' class="col-md-offset-11" style="border-color: transparent;">
+    <input type="text" name='caracteres' size='4' class="col-md-offset-11" style="border-color: transparent;" readonly>
     <%= f.hidden_field :user_id, :class => 'form-control', placeholder: 'Descrição', :value => current_user.id %>
     <%= f.hidden_field :order_id, :class => 'form-control', placeholder: 'Descrição', :value => @order %>
   </div>

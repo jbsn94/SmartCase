@@ -31,6 +31,7 @@ function isOnlyNumberAndLettersKey(evt){
 function conta(){
 	document.forms[0].caracteres.value=document.forms[0].order_description.value.length
 }
+
 function conta2(){
 	document.forms[0].caracteres.value=document.forms[0].comment_description.value.length
 }
