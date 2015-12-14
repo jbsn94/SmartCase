@@ -51,7 +51,7 @@
         <%= f.submit 'Salvar', :class => 'btn btn-danger'%>
       </div>
       <div class="btn-group" role="group">
-        <% if current_user != 'Solicitante'%>
+        <% if current_user.tipo != 'Solicitante'%>
           <button type="button" class="btn btn-danger" onclick="window.location.href='<%= users_path %>'"><i class="fa fa-undo"></i> Voltar</button>
         <% else %>
           <button type="button" class="btn btn-danger" onclick="window.location.href='<%= index_path %>'"><i class="fa fa-undo"></i> Voltar</button>
