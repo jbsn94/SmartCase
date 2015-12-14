@@ -37,6 +37,9 @@
       <div class="form-group">
         <%= select :user, :tipo, [['Solicitante'], ['Funcionário'], ['Administrador']], :class => 'selectpicker' %>
     <% else %>
+        <div class="form-group">
+          <%= f.number_field :cpf, :class => 'form-control', min: '0', onkeypress: 'return isNumberKey(event)', placeholder: 'CPF'  %>
+        </div>
       <div class="form-group">  
         <%= f.hidden_field :tipo, :class => 'selectpicker', :value => 'Funcionário' %>
     <% end %>
