@@ -2,6 +2,7 @@ class LoginController < ApplicationController
   def index
   end
   
+  #Recuperação de Senha
   def recover
     @user = User.find_by(cpf: params[:recover][:cpf])
     unless @user.nil?
@@ -15,6 +16,7 @@ class LoginController < ApplicationController
     end
   end
   
+  #Criação de Session para autenticação
   def create
     @user = User.find_by(cpf: params[:session][:cpf])
     if @user && @user.authenticate(params[:session][:password])
@@ -24,10 +26,12 @@ class LoginController < ApplicationController
       redirect_to '/', notice: 'Você errou seu cpf ou sua senha, digite novamente.'
     end 
   end
+  
+  #Destruição da session
   def destroy 
     if session[:user_id]
       session[:user_id] = nil 
-      redirect_to '/', notice: 'Você saiu da sua conta com sucesso.'
+      redirect_to '/'
     else
       redirect_to '/' 
     end

@@ -28,8 +28,8 @@
     <%= f.text_field :local, :class => 'form-control', placeholder: 'Local do Chamado Ex: Sala A205' %>
   </div>
   <div class="form-group">
-    <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição', rows: 10, onKeyDown: 'conta()', onKeyUp: "conta()" %>
-    <input type="text" name='caracteres' size='4' class="col-md-offset-11" style="border-color: transparent;" readonly>
+    <%= f.text_area :description, :class => 'form-control', placeholder: 'Descrição', rows: 10, onKeyDown: 'showCaracteresDescription()', onKeyUp: "showCaracteresDescription()" %>
+    <input type="text" name='caracteres' size='4' class="col-md-offset-11" style="border-color: transparent; margin-top: 5px;" readonly>
   </div>
   <% end %>
   <% if current_user.tipo != 'Solicitante' %>

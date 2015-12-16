@@ -28,10 +28,10 @@ function isOnlyNumberAndLettersKey(evt){
         return true;
     return false;
 }
-function conta(){
+function showCaracteresDescription(){
 	document.forms[0].caracteres.value=document.forms[0].order_description.value.length
 }
 
-function conta2(){
+function showCaracteresComments(){
 	document.forms[0].caracteres.value=document.forms[0].comment_description.value.length
 }

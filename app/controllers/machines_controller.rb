@@ -5,7 +5,7 @@ class MachinesController < ApplicationController
   before_action :require_admin, only: [:destroy]
   before_action :require_func, except: [:destroy]
   
-  #MarkMenu
+  #MarcaçãoDeMenu
   def set_menu
     @menuMachine = "active-menu"
   end

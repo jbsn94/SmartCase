@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   before_action :require_user
   before_action :require_func
   
-  #MarkMenu
+  #MarcaçãoDeMenu
   def set_menu
     if current_user.tipo == 'Solicitante'
       @menuOrder = 'active-menu'

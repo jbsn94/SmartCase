@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :require_admin, only: [:destroy]
   before_action :require_func, except: [:edit, :destroy, :update]
   
-  #MarkMenu
+  #MarcaçãoDeMenu
   def set_menu
     @menuUser = "active-menu"
   end

@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   def index
     @menuHome = "active-menu"
   end
+  
   def dashboard
     @users = User.where(tipo: 'Solicitante').count
     @machines = Machine.count

@@ -29,11 +29,9 @@
               <td><%= machine.model %></td>
               <td>
                 <center><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, machine_path(machine), id: "Ver maquina", style: "color: black;" %></center>
-                <!-- <center><a  href="<%= machine_path(machine) %>" style="color: black;"><i class="fa fa-search-plus"></i></a></center> -->
               </td>
               <td>
                 <center><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_machine_path(machine), id: "Editar maquina", style: "color: black;" %></center>
-                <!-- <center><a  href="<%= edit_machine_path(machine) %>" style="color: black;"><i class="fa fa-pencil"></i></a></center> -->
               </td>
               <% if current_user.tipo == 'Administrador' %>
                 <td>
